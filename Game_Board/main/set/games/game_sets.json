@@ -1,0 +1,15 @@
+{
+  "games": [
+    {
+      "name": "Chess (Test)",
+      "shortName": "chess",
+      "ver": [ "V1" ]
+    },
+
+    {
+      "name": "D20 (Test)",
+      "shortName": "d20",
+      "ver": [ "V1" ]
+    }
+  ]
+}
