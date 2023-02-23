@@ -10,6 +10,7 @@
 
 //Included custome moduales
 const grid = require('./grid_com');
+const lFile = require('./localFile');
 
 //Included public moduales
 
@@ -18,12 +19,13 @@ const grid = require('./grid_com');
 //Get a list of avalable Ports
 grid.portSerch(); //See grid_com.js modual
 
+
+
+//Get a list of avalable Games
+lFile.openFile("/main/set/games/game_sets.json")
+//Build and launch Main menu
+
 console.log("Started")
 console.log("1")
 console.log("2")
 console.log("end")
-
-//Get a list of avalable Games
-
-//Build and launch Main menu
-

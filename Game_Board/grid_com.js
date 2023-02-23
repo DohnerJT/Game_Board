@@ -13,27 +13,34 @@
 const { SerialPort } = require('serialport'); //Moduale to interact with serial ports threw the OS
 
 //modual global Variables
-let boards = [];
+let boards = []
 
 //Code Body
 
 module.exports.portSerch = async function ()
 {
     console.log("Making Promis")
+
     let promis = SerialPort.list();
     let foundPorts = await promis
-    console.log(foundPorts)
+    //console.log(foundPorts)
 
 
     for (var i = 0; i < foundPorts.length; i++)
     {
 
-        if (foundPorts[i].productID == 'EA60')
+        if (foundPorts[i].productId == 'EA60')
         {
-            boards.push(foundPorts[i])
+            let newPort = {
+                path: foundPorts[i].path,
+                name: foundPorts[i].friendlyName
+                }
+            console.log(newPort)
+
+            boards.push(newPort)
         }
     }
 
-    console.log(boards)
+    console.log("\n Good Boards \n" + boards)
 
 }

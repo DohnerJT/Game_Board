@@ -31,6 +31,9 @@
     <Content Include="grid_com.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="localFile.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="main.js" />
     <Content Include="main\set\games\game_sets.json">
       <SubType>Code</SubType>
