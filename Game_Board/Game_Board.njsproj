@@ -28,6 +28,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="back_com.js" />
+    <Content Include="bridge.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="grid_com.js">
       <SubType>Code</SubType>
     </Content>
@@ -35,16 +39,28 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="main.js" />
+    <Content Include="main\renders\launch_menu\general\doc_manip.js" />
+    <Content Include="main\renders\launch_menu\index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="main\renders\launch_menu\lib\jquery-3.6.1.js" />
+    <Content Include="main\renders\launch_menu\menu.css" />
+    <Content Include="main\renders\launch_menu\menu.js" />
     <Content Include="main\set\games\game_sets.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="windows.js">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="main\" />
     <Folder Include="main\renders\" />
     <Folder Include="main\renders\launch_menu\" />
+    <Folder Include="main\renders\launch_menu\lib\" />
+    <Folder Include="main\renders\launch_menu\general\" />
     <Folder Include="main\set\" />
     <Folder Include="main\set\games\" />
   </ItemGroup>

@@ -11,6 +11,8 @@
 //Included custome moduales
 const grid = require('./grid_com');
 const lFile = require('./localFile');
+const wins = require('./windows');
+const com = require('./back_com');
 
 //Included public moduales
 
@@ -19,11 +21,15 @@ const lFile = require('./localFile');
 //Get a list of avalable Ports
 grid.portSerch(); //See grid_com.js modual
 
-
-
 //Get a list of avalable Games
 lFile.openFile("/main/set/games/game_sets.json")
+
+//Build Back to Front Channal 
+com.Link("menu");
+
 //Build and launch Main menu
+wins.WindowStart()
+
 
 console.log("Started")
 console.log("1")
