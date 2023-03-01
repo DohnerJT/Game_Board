@@ -10,21 +10,55 @@
 //Included custome moduales
 const grid = require('./grid_com');
 const lFile = require('./localFile');
+const wins = require('./windows');
+
 
 //Included public moduales
-const { ipcMain } = require('electron')
+const { ipcMain, webContents } = require('electron')
+
+//Modual Prototype objects
+class message {
+    constructor(tag, req, msg) {
+
+        this.tag = tag;
+        this.req = req;
+        this.msg = msg;
+    }
+}
 
 module.exports.Link = function (channal)
 {
-
-    ipcMain.on(channal, (data) => {SortMessage(data)})
-   
-
+    ipcMain.on(channal, (e, data) => { SortMessage(data) })
 }
 
+ipcMain.handle("port/all", async (event, args) => {
+    return grid.boards;
+});
+
+ipcMain.handle("game/all", async (event, args) => {
+    return lFile.readySet;
+});
+
+//Sort Incoming Messages to the Back End
 const SortMessage = function (data)
 {
 
-    console.log(data)
+    switch (data.tag)
+    {
+        case 'port':
+
+            switch (data.req) {
+
+                case "con":
+                    //console.log(data.msg)
+                    grid.GridLink(data.msg)
+                    break
+                default:
+            }
+            break
+        default:
+    }
+
 
 };
+

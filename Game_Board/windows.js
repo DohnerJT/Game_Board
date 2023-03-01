@@ -12,7 +12,7 @@
 
 //Included public moduales
 const path = require('path');
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, webContents } = require('electron');
 
 let mainWindow
 
@@ -35,6 +35,10 @@ const WindowLaunch = function ()
     //Launches
     mainWindow.loadFile(path.join(__dirname, './main/renders/launch_menu/index.html'));
 
+    mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.send('menu', 'back to front')
+    })
+
 }
 
 module.exports.WindowStart = function ()
@@ -52,11 +56,24 @@ module.exports.WindowStart = function ()
             }
 
         })
+
     })
 }
+
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit()
     }
 })
+
+module.exports.SendUp = function (ch, ms)
+{
+    //mainWindow.webContents.on('did-finish-load', () => {
+    //    mainWindow.webContents.send('menu', 'back to front II')
+    //})
+
+    mainWindow.webContents.send(ch, ms)
+}
+
+module.exports.menuWin = mainWindow;

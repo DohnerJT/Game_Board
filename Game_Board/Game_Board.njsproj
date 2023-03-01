@@ -40,6 +40,7 @@
     </Content>
     <Content Include="main.js" />
     <Content Include="main\renders\launch_menu\general\doc_manip.js" />
+    <Content Include="main\renders\launch_menu\general\front_com.js" />
     <Content Include="main\renders\launch_menu\index.html">
       <SubType>Code</SubType>
     </Content>

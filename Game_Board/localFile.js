@@ -15,11 +15,17 @@ const path = require('path');
 const fs = require('fs'); 
 
 
+let readySet
+
 //Code Body ***********************************************************************************************
 
 module.exports.openFile = function (target)
 {
     let raw = fs.readFileSync(path.join(__dirname, target));
-    let readySet = JSON.parse(raw)
+    readySet = JSON.parse(raw)
     console.log(readySet)
 }
+
+
+
+module.exports.readySet = readySet;

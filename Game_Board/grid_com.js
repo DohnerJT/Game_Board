@@ -14,33 +14,58 @@ const { SerialPort } = require('serialport'); //Moduale to interact with serial 
 
 //modual global Variables
 let boards = []
+let grid
+
+
 
 //Code Body
 
+
+
 module.exports.portSerch = async function ()
 {
-    console.log("Making Promis")
 
     let promis = SerialPort.list();
     let foundPorts = await promis
+
     //console.log(foundPorts)
 
 
     for (var i = 0; i < foundPorts.length; i++)
     {
+        let j = true
 
         if (foundPorts[i].productId == 'EA60')
         {
             let newPort = {
                 path: foundPorts[i].path,
                 name: foundPorts[i].friendlyName
-                }
-            console.log(newPort)
+            }
 
-            boards.push(newPort)
+                boards.push(newPort)
+ 
+            
         }
     }
 
-    console.log("\n Good Boards \n" + boards)
+    console.log("\n Good Boards \n")
+
+    for (var i = 0; i < boards.length; i++)
+    {
+        console.log(boards[i].name)
+    }
 
 }
+
+module.exports.GridLink = function (portPath)
+{
+    console.log(portPath)
+    grid = new SerialPort({ path: portPath, baudRate: 9600});
+
+    grid.on('open', function () {
+        console.log('---Conected----')
+    })
+}
+
+
+module.exports.boards = boards; 

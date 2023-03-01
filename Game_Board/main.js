@@ -24,14 +24,8 @@ grid.portSerch(); //See grid_com.js modual
 //Get a list of avalable Games
 lFile.openFile("/main/set/games/game_sets.json")
 
-//Build Back to Front Channal 
-com.Link("menu");
-
 //Build and launch Main menu
 wins.WindowStart()
 
-
-console.log("Started")
-console.log("1")
-console.log("2")
-console.log("end")
+//Build Back to Front Channal 
+com.Link("menu");

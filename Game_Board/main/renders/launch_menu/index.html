@@ -7,6 +7,7 @@
 
     <script src="menu.js" defer></script>
     <script src="general/doc_manip.js"></script>
+    <script src="general/front_com.js"></script>
     <script src="lib/jquery-3.6.1.js"></script>
 
     <link href="menu.css" rel="stylesheet" />
@@ -21,16 +22,22 @@
             <label for="game" id="game_label"><h2>Game</h2></label>
             <input type="text" name="game" id="game_selected" value="None" readonly>
         </div>
-       
+
         <div id="menu_fields">
-            <div id="menu_lable"><h2>Test Lable</h2></div>
+            <div id="menu_lable"><h2 id="menu_text">Test Lable</h2></div>
             <div id="menu_items">
                 <!-- <button class="item_m" value = "ports">Select Board</button>
                 <button class="item_m" value = "game"> Select Game</button> -->
-              
+
             </div>
 
-       </div>
+        </div>
+
+        <div id="menu_nav">
+            <button class="menu_nav_bt" value="home">Home</button>
+            <button class="menu_nav_bt" value="back">Back</button>
+        </div>
+
     </div>
 </body>
 </html>
