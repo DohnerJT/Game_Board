@@ -43,6 +43,20 @@ body {
     width: 273px;
 }
 
+.green{
+background-color: green;
+}
+
+.amber{
+    background-color: yellow;
+
+}
+
+.red{
+    background-color: red;
+
+}
+
 #menu_fields {
     display: flex;
     flex-direction: column;

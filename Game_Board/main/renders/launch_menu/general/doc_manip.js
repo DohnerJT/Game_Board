@@ -35,7 +35,7 @@ const PortMenu = async function () {
 
     for (var i = 0; i < ports.length; i++) {
 
-        let make = `<button class="item_m" value = "ports/${ports[i].path}">${ports[i].name}</button>`
+        let make = `<button class="item_m" value = "ports/conect/${ports[i].path}">${ports[i].name}</button>`
 
         if (i == 0) {
             items = make
@@ -61,5 +61,35 @@ const WrightToMenu = function (tital, children) {
     //Cleare the Body Container
     $("#menu_items").empty();
     $("#menu_items").append(children);
+
+};
+
+//Modifey Banners.
+
+const BannerStatus = function (tital, state, target)
+{
+    let setTarget ="#" + target + "_label"
+    let setTital = "#" + target + "_selected"
+
+    switch (state) {
+        case 'r':
+            $(setTarget).removeClass();
+            $(setTarget).addClass('amber');
+            break
+        case 'a':
+            $(setTarget).removeClass();
+            $(setTarget).addClass('amber');
+            break
+        case 'g':
+            $(setTarget).removeClass();
+            $(setTarget).addClass('amber');
+            break
+        default:
+            $(setTarget).removeClass();
+            break
+    }
+    $(setTital).val(tital);
+
+    
 
 };

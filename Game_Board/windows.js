@@ -14,6 +14,8 @@
 const path = require('path');
 const { app, BrowserWindow, webContents } = require('electron');
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 let mainWindow
 
 //Code Body ***********************************************************************************************
@@ -32,6 +34,11 @@ const WindowLaunch = function ()
         }
     });
 
+    //Show development tools in development mode
+
+    if (isDev) {
+        mainWindow.webContents.openDevTools();
+    }
     //Launches
     mainWindow.loadFile(path.join(__dirname, './main/renders/launch_menu/index.html'));
 

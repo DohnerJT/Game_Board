@@ -27,9 +27,16 @@ const FilterMenu = function (event)
                 case "home":
                     PortMenu()  
                     break
-
+                case "conect":
+                    //Get Bored TItal, Refine Tital, Display Tital with Amber Status
+                    let tital = $(event.currentTarget).text()
+                    let titalPreped = tital.split('(')
+                    BannerStatus(titalPreped[0], 'a', 'board')
+                    console.log(titalPreped[0])
+                    Send('menu', 'port', 'con', action[2]);
+                    break
                 default:
-                    Send('menu', 'port', 'con', action[1]);
+                    console.log("Port Fail")
                     break
             }         
             break
