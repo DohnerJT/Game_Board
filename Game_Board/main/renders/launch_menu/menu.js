@@ -32,7 +32,8 @@ const FilterMenu = function (event)
                     let tital = $(event.currentTarget).text()
                     let titalPreped = tital.split('(')
                     BannerStatus(titalPreped[0], 'a', 'board')
-                    console.log(titalPreped[0])
+
+                    //Send Selected port to back end
                     Send('menu', 'port', 'con', action[2]);
                     break
                 default:

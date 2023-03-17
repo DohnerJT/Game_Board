@@ -8,6 +8,7 @@
  * */
 
 //Included custome moduales
+const com = require('./back_com');
 
 //Included public moduales
 const { SerialPort } = require('serialport'); //Moduale to interact with serial ports threw the OS
@@ -57,15 +58,34 @@ module.exports.portSerch = async function ()
 
 }
 
+//Conect to Specifiede Port
 module.exports.GridLink = function (portPath)
 {
     console.log(portPath)
-    grid = new SerialPort({ path: portPath, baudRate: 9600});
+    grid = new SerialPort({ path: portPath, baudRate: 9600 });
 
+    //Create handleres for Newley conected port
     grid.on('open', function () {
         console.log('---Conected----')
+
+        grid.on('data', SortGridMsg)
+
+        grid.on('error', function (e) {
+            console.log(e)
+        })
+
+        com.SendToMenu('port', 'confir', true, 'menu');
     })
+
+
+  
 }
 
+const SortGridMsg = function (data)
+{
+
+    console.log(data)
+
+};
 
 module.exports.boards = boards; 

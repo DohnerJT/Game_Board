@@ -17,6 +17,14 @@ const wins = require('./windows');
 const { ipcMain, webContents } = require('electron')
 
 //Modual Prototype objects
+
+    /**
+     * Message Prototype
+     *  tag: Relevent Party on Front end
+     *  req: Requested Action Type 
+     *  msg: Data for Relevent party requested action
+     */
+
 class message {
     constructor(tag, req, msg) {
 
@@ -26,6 +34,7 @@ class message {
     }
 }
 
+//Front end Link For
 module.exports.Link = function (channal)
 {
     ipcMain.on(channal, (e, data) => { SortMessage(data) })
@@ -39,7 +48,7 @@ ipcMain.handle("game/all", async (event, args) => {
     return lFile.readySet;
 });
 
-//Sort Incoming Messages to the Back End
+//MENU: Sort Incoming Messages from the frontend to the Back End
 const SortMessage = function (data)
 {
 
@@ -62,3 +71,12 @@ const SortMessage = function (data)
 
 };
 
+//Send messages to the front end
+module.exports.SendToMenu = function (tag, req, msg, cha)
+{
+    let ms = new message(tag, req, msg)
+    console.log(ms)
+
+    wins.SendUp(cha, ms)
+ 
+}

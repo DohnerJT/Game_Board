@@ -9,7 +9,7 @@
  * */
 
 //Included custome moduales
-const grid = require('./grid_com');
+//const grid = require('./grid_com');
 const lFile = require('./localFile');
 
 //Included public moduales
@@ -45,35 +45,13 @@ const SortMessage = function (data) {
             console.log('req: ' + data.req);
 
             switch (data.req) {
-
-                //Fille asyinc Data
-                case 'set':
-                    foundPorts = grid.boards
-                    console.log(foundPorts)
-                    foundGames = lFile.readySet
-
+                case 'confir':   
+                    console.log(data.msg)
                     break
-                case 'all':
-                    console.log(data.msg.length);
-
-                    for (var i = 0; i < data.msg.length; i++) {
-
-                        if (i == 0) {
-                            retreved[0] = data.msg[i]
-                        }
-                        else {
-                            retreved.push(data.msg[i])
-                        }
-
-                        console.log(`ports ${i} Name: ` + retreved[i].name);
-                        console.log(`ports ${i} Path: ` + retreved[i].path);
-
-                    }
-
-                    
+                case 'all': 
                     break
-
                 default:
+                    break;
             }
             break
 
