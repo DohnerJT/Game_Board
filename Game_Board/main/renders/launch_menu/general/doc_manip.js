@@ -20,7 +20,7 @@ const HomeMenu = function () {
         items = items + `<button class="item_m" value = "game/home"> Select Game</button>`
     }
     else {
-        items = items + `<button class="item_m" value = "game/selHome"> Change Game</button>`
+        items = items + `<button class="item_m" value = "game/selHome">Game Menu</button>`
 
     }
     console.log(items)
@@ -79,8 +79,18 @@ const GameMenu = async function ()
 
 const SetGameSelected = function ()
 {
+    let board = $("#board_selected").val();
+    let item
 
-    
+    if (board != 'None') {
+        item = `<button class = 'item_m' value="game/launch">Launch Sesion</button>`
+    }
+    else {
+        item = `<button class = '' value="game/launch">Set Board to Launch Sesion</button>`
+    }
+     item += `<button class = 'item_m' value="game/close">Change Game</button>`
+    WrightToMenu(selectedGame.name, item)
+
 
 };
 /******************* Menu and Banner Wright ********************************************************************************/

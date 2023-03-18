@@ -49,6 +49,7 @@ window.menu.toMenu((event, data) => {
                 case "confirC":
                     BannerStatus("na", 'n', 'board')
                     PortMenu()
+                    break
                 case 'all':
                     break
                 default:
@@ -64,7 +65,10 @@ window.menu.toMenu((event, data) => {
                     BannerStatus("na", 'g', 'game')
                     SetGameSelected()
                     break
-
+                case "confirC":
+                    BannerStatus("na", 'n', 'game')
+                    GameMenu()
+                    break
                 default:
             }
                     break

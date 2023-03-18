@@ -49,6 +49,7 @@
     <Content Include="main\renders\launch_menu\menu.css" />
     <Content Include="main\renders\launch_menu\menu.js" />
     <Content Include="main\set\games\chess\game_main.js" />
+    <Content Include="main\set\games\d20\game_main.js" />
     <Content Include="main\set\games\game_sets.json">
       <SubType>Code</SubType>
     </Content>

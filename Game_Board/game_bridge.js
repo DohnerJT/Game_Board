@@ -12,7 +12,6 @@
 //Included custome moduales
 const grid = require('./grid_com');
 const com = require('./back_com');
-//const game = require('./main/set/games/chess/game_main')
 let setGame = {} //This variable is set to the modual include for the game
 
 //Included public moduales
@@ -32,7 +31,8 @@ module.exports.LinkToGame = function (selected)
 
 //Deletes link to Game set
 module.exports.UnlinkToGame = function () {
-
+    setGame = {}
+    com.SendToMenu('game', 'confirC', true, 'menu')
 }
 
 //Send Data to Game set

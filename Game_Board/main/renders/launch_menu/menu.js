@@ -93,6 +93,10 @@ const FilterMenu = function (event)
 
                     console.log(selectedGame)
                     break
+                case "close":
+                    BannerStatus(selectedGame.name, 'a', 'game')
+                    Send('menu', 'game', 'close', selectedGame.path);
+                    break
                 default:
                     break
             }

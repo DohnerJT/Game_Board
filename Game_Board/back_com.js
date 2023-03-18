@@ -79,6 +79,9 @@ const SortMessage = function (data)
                     //console.log(data.msg)
                     games.LinkToGame(data.msg)
                     break
+                case 'close':
+                    games.UnlinkToGame()
+                    break
                 default:
                     break
             }
