@@ -1,12 +1,12 @@
 
 
-//Make Home Menu
+//******************Make Home Menu****************************************************************************
 const HomeMenu = function () {
     let items
     let board = $("#board_selected").val();
     let game = $("#game_selected").val();
 
-    console.log(board)
+    //Port Option
     if (board == "None") {
         items = `<button class="item_m" value = "ports/home">Select Board</button>`
     }
@@ -15,6 +15,7 @@ const HomeMenu = function () {
 
     }
 
+    //Game Option
     if (game == "None") {
         items = items + `<button class="item_m" value = "game/home"> Select Game</button>`
     }
@@ -26,6 +27,8 @@ const HomeMenu = function () {
     WrightToMenu("Home", items)
 
 };
+
+/******************* Ports ********************************************************************************/
 
 //Get a list of found portes and populate the menu with them.
 const PortMenu = async function () {
@@ -56,6 +59,24 @@ const SetPortConnected = function ()
     WrightToMenu(connectedBoard.name, item)
 };
 
+/******************* Games ********************************************************************************/
+
+// Get a list of all Games
+const GameMenu = async function ()
+{
+    let games = await menu.Send_Wait('game/all')
+    let items = ""
+
+    games.forEach(set => {
+        items += `<button class="item_m" value = "game/select/${set.shortName}">${set.name}</button>`
+    })
+
+    console.log(items)
+
+    WrightToMenu('Games', items)
+
+};
+/******************* Menu and Banner Wright ********************************************************************************/
 
 //Write to Menu
 const WrightToMenu = function (tital, children) {

@@ -15,14 +15,20 @@ const path = require('path');
 const fs = require('fs'); 
 
 
-let readySet
+let readySet = []
 
 //Code Body ***********************************************************************************************
 
 module.exports.openFile = function (target)
 {
     let raw = fs.readFileSync(path.join(__dirname, target));
-    readySet = JSON.parse(raw)
+    let setList = JSON.parse(raw)
+
+    console.log(setList.games.length)
+    setList.games.forEach(game => {
+        readySet.push(game)
+    })
+
     console.log(readySet)
 }
 

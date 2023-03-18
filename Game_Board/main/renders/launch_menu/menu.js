@@ -7,6 +7,7 @@ class board {
 }
 
 let connectedBoard = []
+let selectedGame = []
 
 
 const SetUp = function ()
@@ -31,7 +32,7 @@ const FilterMenu = function (event)
     let action = item.split('/')
 
     switch (action[0]) {
-        //Build and populate the ports menu for linking
+        //Build and populate the ports menu, Connect and disconect from ports
         case "ports":
             switch (action[1]) {
                 //List all avalable ports
@@ -64,8 +65,37 @@ const FilterMenu = function (event)
             }         
             break
 
+        //Build and populate game menues, set and change game rule sets
         case "game":
 
+            switch (action[1]) {
+                //List all avalable games
+                case 'home':
+                    GameMenu()
+                    break
+                case 'selHome':
+
+                    break
+                case 'select':
+                    //Create Game object
+                    let tital = $(event.currentTarget).text()
+                    let shortTital = action[2]
+                    selectedGame = {
+                        name: tital,
+                        shortName: shortTital
+                    }
+
+                    //Update Banner
+                    BannerStatus(selectedGame.name, 'a', 'game')
+
+                    //Send to backend
+                    Send('menu', 'game', 'set', selectedGame.shortName);
+
+                    console.log(selectedGame)
+                    break
+                default:
+                    break
+            }
             break 
 
         default:

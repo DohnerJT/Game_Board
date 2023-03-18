@@ -11,6 +11,8 @@
 const grid = require('./grid_com');
 const lFile = require('./localFile');
 const wins = require('./windows');
+const games = require('./game_bridge');
+
 
 
 //Included public moduales
@@ -68,6 +70,19 @@ const SortMessage = function (data)
                 default:
             }
             break
+
+        case 'game':
+
+            switch (data.req) {
+
+                case 'set':
+                    //console.log(data.msg)
+                    games.LinkToGame(data.msg)
+                    break
+                default:
+                    break
+            }
+
         default:
     }
 

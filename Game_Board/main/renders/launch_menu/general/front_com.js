@@ -56,6 +56,18 @@ window.menu.toMenu((event, data) => {
             }
             break
 
+        case 'game':
+
+            switch (data.req) {
+                case 'confir':
+                    console.log(data.msg)
+                    BannerStatus("na", 'g', 'game')
+
+                    break
+
+                default:
+            }
+                    break
         default:
     }
     console.log("Message Data Front" + data)

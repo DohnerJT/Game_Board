@@ -24,16 +24,6 @@ let foundGames
 
 
 //Front End
-//contextBridge.exposeInMainWorld('com',
-//    {
-//        Link: (channal) => ipcRenderer.on(channal, (e, data) => { SortMessage(data)}),
-//        Close: (channal) => ipcRenderer.removeListener(channal),
-//        Send: (channal, data) => ipcRenderer.send(channal, data),
-//        Send_Wait: (channal) => ipcRenderer.invoke(channal)
-//    })
-
-
-
 contextBridge.exposeInMainWorld('menu',
     {
         toMenu: (callback) => ipcRenderer.on('menu', (callback)),

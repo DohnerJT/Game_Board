@@ -32,6 +32,7 @@
     <Content Include="bridge.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="game_bridge.js" />
     <Content Include="grid_com.js">
       <SubType>Code</SubType>
     </Content>
@@ -47,6 +48,7 @@
     <Content Include="main\renders\launch_menu\lib\jquery-3.6.1.js" />
     <Content Include="main\renders\launch_menu\menu.css" />
     <Content Include="main\renders\launch_menu\menu.js" />
+    <Content Include="main\set\games\chess\game_main.js" />
     <Content Include="main\set\games\game_sets.json">
       <SubType>Code</SubType>
     </Content>
@@ -64,6 +66,8 @@
     <Folder Include="main\renders\launch_menu\general\" />
     <Folder Include="main\set\" />
     <Folder Include="main\set\games\" />
+    <Folder Include="main\set\games\chess\" />
+    <Folder Include="main\set\games\d20\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
 </Project>
