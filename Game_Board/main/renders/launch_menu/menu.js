@@ -18,6 +18,8 @@ const SetUp = function ()
     menu.Send("menu", "Front to Back")
     //menu events
     $(document).delegate(".item_m", "click", FilterMenu)
+    $(document).delegate(".menu_nav_bt", "click", HomeMenu)
+
 
 }
 
@@ -38,7 +40,7 @@ const FilterMenu = function (event)
                     break
                 //Show conected port menu
                 case "conHome":
-
+                    SetPortConnected()
                     break
                     //Conect to Selected port
                 case "conect":
