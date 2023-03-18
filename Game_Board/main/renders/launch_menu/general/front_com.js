@@ -62,7 +62,7 @@ window.menu.toMenu((event, data) => {
                 case 'confir':
                     console.log(data.msg)
                     BannerStatus("na", 'g', 'game')
-
+                    SetGameSelected()
                     break
 
                 default:

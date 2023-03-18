@@ -76,6 +76,13 @@ const GameMenu = async function ()
     WrightToMenu('Games', items)
 
 };
+
+const SetGameSelected = function ()
+{
+
+    
+
+};
 /******************* Menu and Banner Wright ********************************************************************************/
 
 //Write to Menu
