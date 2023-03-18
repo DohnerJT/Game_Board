@@ -77,6 +77,7 @@ const BannerStatus = function (tital, state, target)
             $(setTarget).addClass('amber');
             break
         case 'a':
+            $(setTital).val(tital);
             $(setTarget).removeClass();
             $(setTarget).addClass('amber');
             break
@@ -85,10 +86,10 @@ const BannerStatus = function (tital, state, target)
             $(setTarget).addClass('amber');
             break
         default:
+            $(setTital).val("None");
             $(setTarget).removeClass();
             break
     }
-    $(setTital).val(tital);
 
     
 

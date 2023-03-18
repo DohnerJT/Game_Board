@@ -32,12 +32,10 @@ contextBridge.exposeInMainWorld('com',
         Send_Wait: (channal) => ipcRenderer.invoke(channal)
     })
 
-contextBridge.exposeInMainWorld('port', foundPorts)
 
 const SortMessage = function (data) {
     console.log('tag: ' + data.tag);
 
-    let retreved = []
 
     switch (data.tag) {
 
@@ -47,6 +45,7 @@ const SortMessage = function (data) {
             switch (data.req) {
                 case 'confir':   
                     console.log(data.msg)
+                    BannerStatus("na", 'g', )
                     break
                 case 'all': 
                     break
@@ -57,7 +56,7 @@ const SortMessage = function (data) {
 
         default:
     }
-    console.log(retreved)
+    console.log("Message Data Front" + data)
 
 
 };

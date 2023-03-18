@@ -71,6 +71,7 @@ module.exports.GridLink = function (portPath)
         grid.on('data', SortGridMsg)
 
         grid.on('error', function (e) {
+            console.log("Error Message /n/n")
             console.log(e)
         })
 

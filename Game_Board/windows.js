@@ -76,11 +76,8 @@ app.on('window-all-closed', () => {
 
 module.exports.SendUp = function (ch, ms)
 {
-    //mainWindow.webContents.on('did-finish-load', () => {
-    //    mainWindow.webContents.send('menu', 'back to front II')
-    //})
+    
 
     mainWindow.webContents.send(ch, ms)
 }
 
-module.exports.menuWin = mainWindow;

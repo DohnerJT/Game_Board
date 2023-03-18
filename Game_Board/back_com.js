@@ -75,7 +75,7 @@ const SortMessage = function (data)
 module.exports.SendToMenu = function (tag, req, msg, cha)
 {
     let ms = new message(tag, req, msg)
-    console.log(ms)
+    console.log("Made Message Back" + ms)
 
     wins.SendUp(cha, ms)
  
