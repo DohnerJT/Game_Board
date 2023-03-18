@@ -62,6 +62,9 @@ const SortMessage = function (data)
                     //console.log(data.msg)
                     grid.GridLink(data.msg)
                     break
+                case "close":
+                    grid.GridDeLink()
+                    break
                 default:
             }
             break

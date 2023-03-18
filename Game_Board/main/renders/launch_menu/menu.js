@@ -1,4 +1,13 @@
 
+class board {
+    constructor(path, name) {
+        this.path = path;
+        this.name = name
+    }
+}
+
+let connectedBoard = []
+
 
 const SetUp = function ()
 {
@@ -6,8 +15,7 @@ const SetUp = function ()
     HomeMenu();
 
     //Creat link with the back end for Menu
-    com.Link("menu")
-    com.Send("menu", "Front to Back")
+    menu.Send("menu", "Front to Back")
     //menu events
     $(document).delegate(".item_m", "click", FilterMenu)
 
@@ -24,20 +32,32 @@ const FilterMenu = function (event)
         //Build and populate the ports menu for linking
         case "ports":
             switch (action[1]) {
+                //List all avalable ports
                 case "home":
                     PortMenu()  
                     break
+                //Show conected port menu
+                case "conHome":
+
+                    break
+                    //Conect to Selected port
                 case "conect":
                     //Get Bored TItal, Refine Tital, Display Tital with Amber Status
                     let tital = $(event.currentTarget).text()
                     let titalPreped = tital.split('(')
-                    BannerStatus(titalPreped[0], 'a', 'board')
+                    connectedBoard = new board(action[2], titalPreped[0])
+                    BannerStatus(connectedBoard.name, 'a', 'board')
 
                     //Send Selected port to back end
-                    Send('menu', 'port', 'con', action[2]);
+                    Send('menu', 'port', 'con', connectedBoard.path);
+                    break
+                //Close Port Conection
+                case "close":
+                    BannerStatus(connectedBoard.name, 'a', 'board')
+                    Send('menu', 'port', 'close', connectedBoard.path);
                     break
                 default:
-                    console.log("Port Fail")
+                    console.log("Menu Port Fail")
                     break
             }         
             break
@@ -52,6 +72,7 @@ const FilterMenu = function (event)
     }
 
 };
+
 
 
 

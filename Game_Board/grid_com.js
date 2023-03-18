@@ -22,38 +22,24 @@ let grid
 //Code Body
 
 
-
+//Creat list of avalable ports. 
 module.exports.portSerch = async function ()
 {
 
     let promis = SerialPort.list();
     let foundPorts = await promis
 
-    //console.log(foundPorts)
-
-
+    //Narow list to ports with game boards
     for (var i = 0; i < foundPorts.length; i++)
     {
-        let j = true
-
         if (foundPorts[i].productId == 'EA60')
         {
             let newPort = {
                 path: foundPorts[i].path,
                 name: foundPorts[i].friendlyName
             }
-
-                boards.push(newPort)
- 
-            
+                boards.push(newPort)            
         }
-    }
-
-    console.log("\n Good Boards \n")
-
-    for (var i = 0; i < boards.length; i++)
-    {
-        console.log(boards[i].name)
     }
 
 }
@@ -61,20 +47,29 @@ module.exports.portSerch = async function ()
 //Conect to Specifiede Port
 module.exports.GridLink = function (portPath)
 {
-    console.log(portPath)
-    grid = new SerialPort({ path: portPath, baudRate: 9600 });
+    //Create port object
+    grid = new SerialPort({ path: portPath, baudRate: 115200 });
 
     //Create handleres for Newley conected port
     grid.on('open', function () {
         console.log('---Conected----')
 
+        //Date incoming
         grid.on('data', SortGridMsg)
 
+        //Port Error
         grid.on('error', function (e) {
             console.log("Error Message /n/n")
             console.log(e)
         })
 
+        //Port Closed
+        grid.on('close', function (e) {
+            console.log("Port is closed")
+            com.SendToMenu("port", "confirC", true, 'menu')
+        })
+
+        //Send port conection confermation to Frontend
         com.SendToMenu('port', 'confir', true, 'menu');
     })
 
@@ -82,6 +77,14 @@ module.exports.GridLink = function (portPath)
   
 }
 
+//Close open port
+module.exports.GridDeLink = function ()
+{
+    grid.close()
+
+}
+
+//Sort incoming data from Game bored
 const SortGridMsg = function (data)
 {
 

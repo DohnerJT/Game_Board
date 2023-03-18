@@ -24,39 +24,22 @@ let foundGames
 
 
 //Front End
-contextBridge.exposeInMainWorld('com',
+//contextBridge.exposeInMainWorld('com',
+//    {
+//        Link: (channal) => ipcRenderer.on(channal, (e, data) => { SortMessage(data)}),
+//        Close: (channal) => ipcRenderer.removeListener(channal),
+//        Send: (channal, data) => ipcRenderer.send(channal, data),
+//        Send_Wait: (channal) => ipcRenderer.invoke(channal)
+//    })
+
+
+
+contextBridge.exposeInMainWorld('menu',
     {
-        Link: (channal) => ipcRenderer.on(channal, (e, data) => { SortMessage(data)}),
+        toMenu: (callback) => ipcRenderer.on('menu', (callback)),
         Close: (channal) => ipcRenderer.removeListener(channal),
         Send: (channal, data) => ipcRenderer.send(channal, data),
         Send_Wait: (channal) => ipcRenderer.invoke(channal)
     })
 
 
-const SortMessage = function (data) {
-    console.log('tag: ' + data.tag);
-
-
-    switch (data.tag) {
-
-        case "port":
-            console.log('req: ' + data.req);
-
-            switch (data.req) {
-                case 'confir':   
-                    console.log(data.msg)
-                    BannerStatus("na", 'g', )
-                    break
-                case 'all': 
-                    break
-                default:
-                    break;
-            }
-            break
-
-        default:
-    }
-    console.log("Message Data Front" + data)
-
-
-};

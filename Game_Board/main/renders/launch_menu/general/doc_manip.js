@@ -1,6 +1,5 @@
 
 
-
 //Make Home Menu
 const HomeMenu = function () {
     let items
@@ -12,7 +11,7 @@ const HomeMenu = function () {
         items = `<button class="item_m" value = "ports/home">Select Board</button>`
     }
     else {
-        items = `<button class="item_m" value = "ports/home">Change Board</button>`
+        items = `<button class="item_m" value = "ports/conHome">Board Menu</button>`
 
     }
 
@@ -20,7 +19,7 @@ const HomeMenu = function () {
         items = items + `<button class="item_m" value = "game/home"> Select Game</button>`
     }
     else {
-        items = items + `<button class="item_m" value = "game/home"> Change Game</button>`
+        items = items + `<button class="item_m" value = "game/selHome"> Change Game</button>`
 
     }
     console.log(items)
@@ -30,7 +29,7 @@ const HomeMenu = function () {
 
 //Get a list of found portes and populate the menu with them.
 const PortMenu = async function () {
-    let ports = await com.Send_Wait('port/all')
+    let ports = await menu.Send_Wait('port/all')
     let items
 
     for (var i = 0; i < ports.length; i++) {
@@ -50,6 +49,13 @@ const PortMenu = async function () {
 
 };
 
+//Show Set port menu
+const SetPortConnected = function ()
+{
+    let item = `<button class = 'item_m' value="ports/close"> Disconect</button>`
+    WrightToMenu(connectedBoard.name, item)
+};
+
 
 //Write to Menu
 const WrightToMenu = function (tital, children) {
@@ -65,7 +71,6 @@ const WrightToMenu = function (tital, children) {
 };
 
 //Modifey Banners.
-
 const BannerStatus = function (tital, state, target)
 {
     let setTarget ="#" + target + "_label"
@@ -74,7 +79,7 @@ const BannerStatus = function (tital, state, target)
     switch (state) {
         case 'r':
             $(setTarget).removeClass();
-            $(setTarget).addClass('amber');
+            $(setTarget).addClass('red');
             break
         case 'a':
             $(setTital).val(tital);
@@ -83,9 +88,10 @@ const BannerStatus = function (tital, state, target)
             break
         case 'g':
             $(setTarget).removeClass();
-            $(setTarget).addClass('amber');
+            $(setTarget).addClass('green');
             break
         default:
+            connectedBoard = NaN
             $(setTital).val("None");
             $(setTarget).removeClass();
             break

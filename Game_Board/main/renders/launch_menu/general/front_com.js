@@ -27,5 +27,37 @@ const Send = function (channal, tag, req, msg)
     let make = new message(tag, req, msg);
 
     //alert(`Channal: ${channal} \nMessage: ${make}`);
-    com.Send(channal, make);
+    menu.Send(channal, make);
 };
+
+//Sort Messages from the backend intended for menu manipulation
+window.menu.toMenu((event, data) => {
+    console.log('tag: ' + data.tag);
+
+
+    switch (data.tag) {
+
+        case "port":
+            console.log('req: ' + data.req);
+
+            switch (data.req) {
+                case 'confir':
+                    console.log(data.msg)
+                    BannerStatus("na", 'g', 'board')
+                    SetPortConnected()
+                    break
+                case "confirC":
+                    BannerStatus("na", 'n', 'board')
+                    PortMenu()
+                case 'all':
+                    break
+                default:
+                    break;
+            }
+            break
+
+        default:
+    }
+    console.log("Message Data Front" + data)
+
+})
