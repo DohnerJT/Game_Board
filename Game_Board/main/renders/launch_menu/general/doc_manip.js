@@ -55,7 +55,9 @@ const PortMenu = async function () {
 //Show Set port menu
 const SetPortConnected = function ()
 {
-    let item = `<button class = 'item_m' value="ports/close"> Disconect</button>`
+    let item = `<button class = 'item_m' value="ports/close"> Disconect</button>
+                <button class = 'item_m' value="ports/test"> Test</button> 
+                <button class = 'item_m' value="ports/testMsg"> Test: Message</button>`
     WrightToMenu(connectedBoard.name, item)
 };
 
@@ -86,7 +88,7 @@ const SetGameSelected = function ()
         item = `<button class = 'item_m' value="game/launch">Launch Sesion</button>`
     }
     else {
-        item = `<button class = '' value="game/launch">Set Board to Launch Sesion</button>`
+        item = `<button class = 'item_m' value="game/launch">Set Board to Launch Sesion</button>`
     }
      item += `<button class = 'item_m' value="game/close">Change Game</button>`
     WrightToMenu(selectedGame.name, item)

@@ -59,6 +59,12 @@ const FilterMenu = function (event)
                     BannerStatus(connectedBoard.name, 'a', 'board')
                     Send('menu', 'port', 'close', connectedBoard.path);
                     break
+                case "test":                 
+                    Send('menu', 'port', 'test', '');
+                    break
+                case "testMsg":
+                    Send('menu', 'port', 'start', '');
+                    break
                 default:
                     console.log("Menu Port Fail")
                     break
@@ -74,7 +80,7 @@ const FilterMenu = function (event)
                     GameMenu()
                     break
                 case 'selHome':
-
+                    SetGameSelected()
                     break
                 case 'select':
                     //Create Game object
