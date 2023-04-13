@@ -29,7 +29,7 @@ module.exports.openFile = function (target)
         readySet.push(game)
     })
 
-    console.log(readySet)
+    //console.log(readySet)
 }
 
 

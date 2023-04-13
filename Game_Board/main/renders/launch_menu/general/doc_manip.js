@@ -55,9 +55,7 @@ const PortMenu = async function () {
 //Show Set port menu
 const SetPortConnected = function ()
 {
-    let item = `<button class = 'item_m' value="ports/close"> Disconect</button>
-                <button class = 'item_m' value="ports/test"> Test</button> 
-                <button class = 'item_m' value="ports/testMsg"> Test: Message</button>`
+    let item = `<button class = 'item_m' value="ports/close"> Disconect</button>`
     WrightToMenu(connectedBoard.name, item)
 };
 

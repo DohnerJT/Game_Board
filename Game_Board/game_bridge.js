@@ -12,7 +12,11 @@
 //Included custome moduales
 const grid = require('./grid_com');
 const com = require('./back_com');
+const wins = require('./windows');
+
 let setGame = {} //This variable is set to the modual include for the game
+
+let gamePath //This variable 
 
 //Included public moduales
 
@@ -25,6 +29,7 @@ module.exports.LinkToGame = function (selected)
     setGame["game"] = require(`./main/set/games/${selected}/game_main`)
     com.SendToMenu('game', 'confir', true, 'menu')
 
+    gamePath = selected
     console.log(selected)
     
 }
@@ -32,16 +37,23 @@ module.exports.LinkToGame = function (selected)
 //Deletes link to Game set
 module.exports.UnlinkToGame = function () {
     setGame = {}
+    selected = ""
     com.SendToMenu('game', 'confirC', true, 'menu')
 }
 
-//Send Data to Game set
-module.exports.ToGame = function ()
+module.exports.LaunchGame = function ()
 {
-    setGame["game"].TestinIn()
+    wins.updateMain(gamePath);
+    setGame["game"].StartGameApp();
 }
 
-//Reseve data frome Game set
+//Send Data to Game set
+module.exports.ToGame = function (data)
+{
+    setGame["game"].FromApp(data)
+}
+
+//Receve data frome Game set
 module.exports.ToApp = function (msg)
 {
     console.log(msg)

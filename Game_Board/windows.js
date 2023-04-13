@@ -42,9 +42,6 @@ const WindowLaunch = function ()
     //Launches
     mainWindow.loadFile(path.join(__dirname, './main/renders/launch_menu/index.html'));
 
-    mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.send('menu', 'back to front')
-    })
 
 }
 
@@ -76,8 +73,12 @@ app.on('window-all-closed', () => {
 
 module.exports.SendUp = function (ch, ms)
 {
-    
-
     mainWindow.webContents.send(ch, ms)
 }
 
+module.exports.updateMain = function (pathGame)
+{
+    mainWindow.setSize(1500, 1200);
+    mainWindow.loadFile(path.join(__dirname, `./main/set/games/${pathGame}/Renders/rk_ui/index.html`));
+
+}

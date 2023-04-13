@@ -27,6 +27,7 @@ let foundGames
 contextBridge.exposeInMainWorld('menu',
     {
         toMenu: (callback) => ipcRenderer.on('menu', (callback)),
+        toGame: (callback) => ipcRenderer.on('game', (callback)),
         Close: (channal) => ipcRenderer.removeListener(channal),
         Send: (channal, data) => ipcRenderer.send(channal, data),
         Send_Wait: (channal) => ipcRenderer.invoke(channal)

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="main.js" defer></script>
+    <script src="general/game_front_com.js"></script>
+    <script src="lib/jquery-3.6.1.js"></script>
+
+
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mainBody">
+        <!-- Container: Holdes Player Status and Game Board Stutus -->
+        <div id="playerAndBoard">
+            
+            <!-- Player 1 and Token Menu ***************-->
+            <div class="playerContainer" id="player1">
+                <!-- Player Tital -->
+                <div class="playerLable">
+                    <h2>Player 1</h2>
+                    
+                </div>
+
+                <!-- Player Tokens -->
+                <div class="playerTokens">
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 1/2;grid-column: 1/2">
+                        
+                        <div    class="token tokenUnasigned"
+                                id="token_1"
+                                style="grid-row: 1/2;grid-column: 1/2"> 
+                                
+                            <img src="lib\tokenW\rookW.png" height="80px" >
+                            <h4 class="tokenName">Rook 1</h4>
+
+
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"
+                                style="grid-row: 1/2;grid-column: 2/3"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 1</h4>
+
+                        </div>
+                        
+                    </div>
+                    <!-- Endo of Row 1 -->
+
+                    <div    claSS="tokenRow " 
+                            style="grid-row: 2/3;grid-column: 1/2">
+
+                        <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                            <img src="lib\tokenW\knightW.png" height="80px" >
+                            <h4 class="tokenName">Knight 1</h4> 
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 2</h4>
+                        </div>
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 3/4;grid-column: 1/2">
+                            
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                                <img src="lib\tokenW\bishopW.png" height="80px" >
+                                <h4 class="tokenName">Bishop 1</h4>
+                            </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 3</h4>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow " 
+                            style="grid-row: 4/5;grid-column: 1/2">
+
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                        <img src="lib\tokenW\kingW.png" height="80px" >
+                        <h4 class="tokenName">King</h4>
+                    </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 4</h4>
+                        </div>
+                        
+                        
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 5/6;grid-column: 1/2">
+
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                        <img src="lib\tokenW\queenW.png" height="80px" >
+                        <h4 class="tokenName">Queen</h4>
+                    </div>
+                        
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 5</h4>
+                        </div>
+
+                        
+
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 6/7;grid-column: 1/2">
+
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                        <img src="lib\tokenW\bishopW.png" height="80px" >
+                        <h4 class="tokenName">Bishop 2</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 6</h4>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 7/8;grid-column: 1/2">
+
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                        <img src="lib\tokenW\knightW.png" height="80px">
+                        <h4 class="tokenName">Knight 2</h4>
+                    </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 7</h4>
+                        </div>
+
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 8/9;grid-column: 1/2">
+
+                            <div    class="token tokenUnasigned"
+                            id="token_x"> 
+                            
+                            <img src="lib\tokenW\rookW.png" height="80px" >
+                            <h4 class="tokenName">Rook 2</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenW\pawnW.png" height="80px" >
+                            <h4 class="tokenName">Pawn 8</h4>
+                        </div>
+
+                        
+                    </div>
+            </div>
+
+            </div>
+            <!-- End of Player 1 -->
+
+            <!-- Game Bored Field ***********************-->
+            <div id="gameBoard">
+
+                <!-- Board Header -->
+                <!--<div class="TileH ledIdle" style="grid-row: 1/2; grid-column: 1/2;"> </div>-->
+                <!-- Board Axial -->
+                <!--<div class="TileH ledIdle" style="grid-row: 2/3; grid-column: 1/2;">A</div>-->
+
+                <!-- A Row -->
+                <!--<div class="TileB ledIdle" id="x-8_y-8" style="grid-row: 2/3;  grid-column: 2/3;"></div>-->
+
+            </div>
+            <!-- End of Game Board -->
+
+            <!-- Player 2 and Token Menu *******************-->
+            <div class="playerContainer" id="player2">
+                <div class="playerLable">
+                    <h2>Player 2</h2>                    
+                </div>
+
+                <div class="playerTokens">
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 1/2;grid-column: 1/2">
+                        
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 8</h4>
+                        </div>
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\rookB.png" height="80px" >
+                            <h4 class="tokenName">Rook 2</h4>
+                        </div>
+
+                    </div>
+                    <!-- Endo of Row 1 -->
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 2/3;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 7</h4>
+                        </div>
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\knightB.png" height="80px" >
+                            <h4 class="tokenName">Knight 2</h4>
+                        </div>
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 3/4;grid-column: 1/2">
+
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 6</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                        id="token_x"> 
+                        
+                            <img src="lib\tokenB\bishopB.png" height="80px" >
+                            <h4 class="tokenName">Bishop 2</h4>
+                        </div>
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 4/5;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 5</h4>
+                        </div>
+                        
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\kingB.png" height="80px" >
+                            <h4 class="tokenName">King</h4>
+                        </div>
+                        
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 5/6;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 4</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\queenB.png" height="80px" >
+                            <h4 class="tokenName">Queen</h4>
+                        </div>
+
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 6/7;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 3</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\bishopB.png" height="80px" >
+                            <h4 class="tokenName">Bishop 1</h4>
+                        </div>
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 7/8;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 2</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\knightB.png" height="80px">
+                            <h4 class="tokenName">Knight 1</h4>
+                        </div>
+
+                    </div>
+
+                    <div    claSS="tokenRow" 
+                            style="grid-row: 8/9;grid-column: 1/2">
+
+                        
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+
+                            <img src="lib\tokenB\pawnB.png" height="80px" >
+                            <h4 class="tokenName">Pawn 1</h4>
+                        </div>
+
+                        <div    class="token tokenUnasigned"
+                                id="token_x"> 
+                                
+                            <img src="lib\tokenB\rookB.png" height="80px" >
+                            <h4 class="tokenName">Rook 1</h4>
+                        </div>
+                    </div>
+            </div>
+
+
+                
+            </div>
+            <!-- End of Player 2 -->
+
+        </div>
+        <div id="RKMenu">   
+<button id="scanButton">Inital Scan</button>
+        </div>
+    </body>
+    </div>
+   
+</html>

@@ -48,7 +48,27 @@
     <Content Include="main\renders\launch_menu\lib\jquery-3.6.1.js" />
     <Content Include="main\renders\launch_menu\menu.css" />
     <Content Include="main\renders\launch_menu\menu.js" />
+    <Content Include="main\set\games\chess\game_back_com.js" />
     <Content Include="main\set\games\chess\game_main.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\general\game_front_com.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\index.html" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\jquery-3.6.1.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\strick.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\strickThrough.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\bishopB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\kingB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\knightB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\pawnB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\queenB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\rookB.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\bishopW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\kingW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\knightW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\pawnW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\queenW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\rookW.png" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\main.css" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\main.js" />
     <Content Include="main\set\games\d20\game_main.js" />
     <Content Include="main\set\games\game_sets.json">
       <SubType>Code</SubType>
@@ -68,6 +88,13 @@
     <Folder Include="main\set\" />
     <Folder Include="main\set\games\" />
     <Folder Include="main\set\games\chess\" />
+    <Folder Include="main\set\games\chess\Renders\" />
+    <Folder Include="main\set\games\chess\Renders\player_ui\" />
+    <Folder Include="main\set\games\chess\Renders\rk_ui\" />
+    <Folder Include="main\set\games\chess\Renders\rk_ui\lib\" />
+    <Folder Include="main\set\games\chess\Renders\rk_ui\lib\tokenB\" />
+    <Folder Include="main\set\games\chess\Renders\rk_ui\lib\tokenW\" />
+    <Folder Include="main\set\games\chess\Renders\rk_ui\general\" />
     <Folder Include="main\set\games\d20\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />

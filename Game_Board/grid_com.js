@@ -32,18 +32,25 @@ module.exports.portSerch = async function ()
     let promis = SerialPort.list();
     let foundPorts = await promis
 
-    console.log(foundPorts)
+    //console.log(foundPorts)
+
     //Narow list to ports with game boards
     for (var i = 0; i < foundPorts.length; i++)
     {
-        if (foundPorts[i].productId == 'EA60')
-        {
-            let newPort = {
-                path: foundPorts[i].path,
-                name: foundPorts[i].friendlyName
-            }
-                boards.push(newPort)            
+        //if (foundPorts[i].productId == 'EA60')
+        //{
+        //    let newPort = {
+        //        path: foundPorts[i].path,
+        //        name: foundPorts[i].friendlyName
+        //    }
+        //        boards.push(newPort)            
+        //}
+
+        let newPort = {
+            path: foundPorts[i].path,
+            name: foundPorts[i].friendlyName
         }
+        boards.push(newPort)
     }
 
 }

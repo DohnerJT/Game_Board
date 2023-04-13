@@ -1,0 +1,125 @@
+
+/* Maine Bodey of Window ************************************************************************************** */
+#mainBody{
+    width: 1450px; height: 1100px;
+    margin: 0; padding: 0;
+    border: solid 1px red;
+}
+
+/* Game and Players Statuse **************************************************************************** */
+/* Parent:Maine Bodey ********************************************************************************* */
+#playerAndBoard{
+    display: flex;
+    width: 1450px; height: 955px;
+    margin: 0; padding: 0;
+    border: solid 1px red;
+}
+
+    /* Player Status Window ************************************************************************************** */
+    /* Parent:playerAndBoard ********************************************************************************* */
+    .playerContainer {
+        border: solid 1px black;
+        margin: 0; padding: 0;
+        width: 236px; height: 950px;
+    }
+
+    .playerTokens{
+        border: 1px solid pink;
+        display: grid;
+        grid-template: repeat(8,1fr)/1fr;
+        width: 100%; height: 900px;
+    }
+
+    #player1{
+
+    }
+
+    #player2{
+        
+    }
+
+    .playerLable{
+        border: 1px solid green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; height: 50px;
+    }
+
+    .tokenRow{
+        display: grid;
+        grid-template: 1fr/repeat(2,1fr);
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+    }
+
+    .token{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+
+    .tokenUnasigned{
+        opacity: 0.2;
+    }
+
+    .strick{
+        position: absolute;
+        margin-top: -10px;
+    }
+
+    .tokenName{
+        margin: 5px 5px 0 5px ;
+    }
+
+
+    /* Game Boared Status ***************************************************************************** */
+    /* Parent:playerAndBoard ********************************************************************************* */
+    #gameBoard {
+        border: solid 1px blue;
+        margin: 0; padding: 0;
+        width: 975px; height: 950px;
+        display: grid;
+        grid-template: .5fr repeat(8, 1fr)/ .5fr repeat(8, 1fr);
+    }
+
+        .TileH {
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(186,202,68);
+        }
+        .TileB {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #573a2e;
+        }
+
+        .TileW {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fccc74;
+        }
+
+/* Rual Keeper Actions********************************************************************************* */
+/* Parent:Maine Bodey ********************************************************************************* */
+#RKMenu{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px green;
+    padding: 0; margin: 0;
+}
+
+#scanButton{
+    font-size: large;
+    height: 50px;
+}

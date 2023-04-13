@@ -85,7 +85,10 @@ const SortMessage = function (data)
                 case 'set':
                     //console.log(data.msg)
                     games.LinkToGame(data.msg)
-                    //grid.SendTOGrid() 
+                    break
+                case 'launch':
+                    console.log("Launch In Progress")
+                    games.LaunchGame()
                     break
                 case 'close':
                     games.UnlinkToGame()

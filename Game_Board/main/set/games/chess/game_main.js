@@ -8,7 +8,11 @@
  * */
 
 //Included custome moduales
-const game = require('../../../../game_bridge')
+let dirBackPath = "../../../../"
+const game = require(dirBackPath + 'game_bridge')
+const wins = require(dirBackPath + 'windows');
+const com = require('./game_back_com')
+
 
 
 //Included public moduales
@@ -16,7 +20,17 @@ const game = require('../../../../game_bridge')
 
 //Code Body ***********************************************************************************************
 
-module.exports.TestinIn = function ()
+module.exports.FromApp = function (data)
 {
     game.ToApp('Hello from Chess')
+}
+
+module.exports.ToApp = function ()
+{
+    
+}
+
+module.exports.StartGameApp = function ()
+{
+    com.Link('game')
 }
