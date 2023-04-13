@@ -114,9 +114,7 @@ const RequestScan = function (){
                         </div>`
     
     if (inital) {
-        target.append(token);
-
-    targetToken.removeClass("tokenUnasigned");
+        Send("port", 'scanI', NaN)
     inital = false
     }
     else{

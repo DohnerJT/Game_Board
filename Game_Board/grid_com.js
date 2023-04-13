@@ -75,8 +75,7 @@ module.exports.GridLink = function (portPath)
 
         //Date incoming
         parser.on('data', function (data) {
-            console.log("Entered")
-            console.log("Data From Grid:\n" + data)
+            SortGridMsg(data)
         })
 
         //Port Error

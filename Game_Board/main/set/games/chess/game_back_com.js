@@ -27,6 +27,19 @@ module.exports.Link = function (channal) {
 
 const SortMessage = function (data) {
 
+    switch (data.tag) {
+        case "port":
+
+            switch (data.req) {
+                case "scanI"
+
+
+                default:
+            }
+            break
+
+        default:
+    }
     console.log("Message Frome Game Menue Chess")
     wins.SendUp('game', true)
 }
