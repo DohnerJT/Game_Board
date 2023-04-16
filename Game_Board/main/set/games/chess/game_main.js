@@ -9,7 +9,7 @@
 
 //Included custome moduales
 let dirBackPath = "../../../../"
-const game = require(dirBackPath + 'game_bridge')
+const AppBank = require(dirBackPath + 'game_bridge')
 const wins = require(dirBackPath + 'windows');
 const com = require('./game_back_com')
 
@@ -22,12 +22,12 @@ const com = require('./game_back_com')
 
 module.exports.FromApp = function (data)
 {
-    game.ToApp('Hello from Chess')
+    AppBank.ToApp('Hello from Chess')
 }
 
-module.exports.ToApp = function ()
+module.exports.ToApp = function (target, instruction)
 {
-    
+    AppBank.ToApp(target, instruction);''
 }
 
 module.exports.StartGameApp = function ()

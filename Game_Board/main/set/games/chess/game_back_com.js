@@ -12,6 +12,7 @@ Handales Communication from the Front end of a game to the backend
 let dirBackPath = "../../../../"
 //Included custome moduales
 const wins = require(dirBackPath + 'windows');
+const gameBank = require('./game_main')
 
 
 //Included public moduales
@@ -31,7 +32,14 @@ const SortMessage = function (data) {
         case "port":
 
             switch (data.req) {
-                case "scanI"
+                case "scanI":
+                    gameBank.ToApp(data.tag, 'I')
+                    break
+                case "scanP":
+                    gameBank.ToApp(data.tag, 'P')
+
+
+                    break
 
 
                 default:

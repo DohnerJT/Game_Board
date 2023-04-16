@@ -110,7 +110,7 @@ module.exports.GridDeLink = function ()
 module.exports.SendTOGrid = function (msg)
 {
     console.log("Writing to Grid: " + msg)  
-    grid.write(msg, function (e) { if (e) { return console.log("Send Err: " + e.message) } console.log("Sent to Grid") })
+    grid.write((msg+'\n'), function (e) { if (e) { return console.log("Send Err: " + e.message) } console.log("Sent to Grid") })
 
 }
 

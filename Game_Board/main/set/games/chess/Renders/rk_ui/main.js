@@ -101,26 +101,14 @@ const BuildBoard = function ()
 
 const RequestScan = function (){
 
-    // Testing Code
     
-    let xXoordinate = 0
-    let yXoordinate = 7
-    let target = $(`#x-${xXoordinate}_y-${yXoordinate}`);
-    let targetToken = $("#token_1");
-
-    let token = `<div   class="token"
-                        id="token_x">     
-                        <img src="lib/tokenW/rookW.png" height="80px" >
-                        </div>`
     
     if (inital) {
         Send("port", 'scanI', NaN)
-    inital = false
+        inital = false
     }
     else{
-        let strickIt = `<img class="strick" src="lib/strick.png" width="50px" >`
-        targetToken.append(strickIt)
-        Send('I', 'I', true)
+        Send("port", 'scanP', NaN)
     }
     
 

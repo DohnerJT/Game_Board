@@ -54,7 +54,31 @@ module.exports.ToGame = function (data)
 }
 
 //Receve data frome Game set
-module.exports.ToApp = function (msg)
+module.exports.ToApp = function (target, instruction)
 {
-    console.log(msg)
+
+    switch (target) {
+
+        case "port":
+
+            switch (instruction) {
+
+                case 'I':
+                    console.log("Initial Scan")
+                    let msgRaw = { a: instruction, data: null }
+                    let msg = JSON.stringify(msgRaw);
+                    grid.SendTOGrid(msg)
+                    break
+                case 'P':
+                    console.log("Play Scan")
+                    let pRaw = { a: instruction, data: null }
+                    let msgP = JSON.stringify(pRaw);
+                    grid.SendTOGrid(msgP)
+                    break
+                default:
+            }
+            break
+
+        default:
+    }
 }
