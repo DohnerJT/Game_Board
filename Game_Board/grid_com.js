@@ -9,6 +9,7 @@
 
 //Included custome moduales
 const com = require('./back_com');
+const appBank = require('./game_bridge')
 
 //Included public moduales
 const { SerialPort } = require('serialport'); //Moduale to interact with serial ports threw the OS
@@ -118,7 +119,9 @@ module.exports.SendTOGrid = function (msg)
 const SortGridMsg = function (data)
 {
     console.log("Entered")
-    console.log("Data From Grid:\n" + data)
+    //console.log("Data From Grid:\n" + data)
+
+    appBank.ToGame(data)
 
 };
 

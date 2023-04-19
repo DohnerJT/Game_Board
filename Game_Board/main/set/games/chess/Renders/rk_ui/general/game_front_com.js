@@ -18,5 +18,5 @@ const Send = function (tag, req, msg) {
 
 //Filter Data from Backend of the game set App
 window.menu.toGame((e, data) => {
-    console.log("And this workes as well")
+    UpdatTokents(data)
 })

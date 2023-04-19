@@ -57,8 +57,10 @@ module.exports.ToGame = function (data)
 module.exports.ToApp = function (target, instruction)
 {
 
+    //Sort Messages from Game App
     switch (target) {
 
+        //Requesting Actions from Grid
         case "port":
 
             switch (instruction) {

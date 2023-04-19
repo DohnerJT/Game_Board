@@ -22,12 +22,12 @@ const com = require('./game_back_com')
 
 module.exports.FromApp = function (data)
 {
-    AppBank.ToApp('Hello from Chess')
+    com.ToFrontEnd(data)
 }
 
 module.exports.ToApp = function (target, instruction)
 {
-    AppBank.ToApp(target, instruction);''
+    AppBank.ToApp(target, instruction);
 }
 
 module.exports.StartGameApp = function ()

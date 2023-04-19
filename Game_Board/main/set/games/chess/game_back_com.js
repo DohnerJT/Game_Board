@@ -48,6 +48,11 @@ const SortMessage = function (data) {
 
         default:
     }
-    console.log("Message Frome Game Menue Chess")
-    wins.SendUp('game', true)
+
+}
+
+module.exports.ToFrontEnd = function (msg)
+{
+    wins.SendUp('game', msg)
+
 }

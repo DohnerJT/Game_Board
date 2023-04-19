@@ -51,6 +51,8 @@
     <Content Include="main\set\games\chess\game_back_com.js" />
     <Content Include="main\set\games\chess\game_main.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\general\game_front_com.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\general\tokens.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\general\tokenType.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\index.html" />
     <Content Include="main\set\games\chess\Renders\rk_ui\lib\jquery-3.6.1.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\lib\strick.png" />

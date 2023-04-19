@@ -6,7 +6,6 @@ let grid =  []
 let colLength = 8
 let rowLength = 8
 
-let inital = true
 
 const SetUp = function () {
 
@@ -99,13 +98,12 @@ const BuildBoard = function ()
 
 };
 
+//Send Scan Request to back end of Game
 const RequestScan = function (){
 
-    
-    
+//Request Inital or Play scan    
     if (inital) {
         Send("port", 'scanI', NaN)
-        inital = false
     }
     else{
         Send("port", 'scanP', NaN)

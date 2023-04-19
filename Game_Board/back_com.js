@@ -63,17 +63,17 @@ const SortMessage = function (data)
                 case "con":
                     //console.log(data.msg)
                     grid.GridLink(data.msg)                  
-                    grid.SendTOGrid('S')
+                    
 
                     break
                 case "close":
                     grid.GridDeLink()
                     break
-                case "test":
-                    grid.SendTOGrid('T')
-                    break
-                case "start":
-                    grid.SendTOGrid('I')
+                //case "test":
+                //    grid.SendTOGrid('T')
+                //    break
+                //case "start":
+                //    grid.SendTOGrid('I')
                 default:
             }
             break
