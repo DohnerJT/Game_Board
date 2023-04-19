@@ -5,10 +5,19 @@ class TokenObj {
     rName;
 
     constructor(x, y, tag) {
+        //Token ID
         this.tag = tag;
         this.x = x;
         this.y = y;
+        //Token GUI Object ID
         this.docTag = `#x-${x}_y-${y}`
+    }
+
+    update(x, y) {
+        this.x = x;
+        this.y = y;
+        this.docTag = `#x-${x}_y-${y}`
+
     }
 }
 
@@ -52,15 +61,5 @@ class Queen {
 
 }
 
-const AddToBoard = function (img, name, target, roster)
-{
-    console.log(img)
-    console.log(name)
-    console.log(target)
 
-    let boardToken = `<img src="${img}" id = "${name}" height="80px" >`
-    $(target).append(boardToken)
-    $(roster).removeClass("tokenUnasigned")
-
-};
 

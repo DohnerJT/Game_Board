@@ -27,6 +27,7 @@ const UpdatTokents = function (data) {
     //Play Scan
     else {
 
+        NewVsOld(scan)
     }
 
 }
@@ -50,8 +51,7 @@ const FillHistory = function (scan)
 
 };
 
-const SetBoard = function ()
-{
+const SetBoard = function () {
     tokenHistory.forEach((token) => {
 
         switch (token.x) {
@@ -62,7 +62,7 @@ const SetBoard = function ()
                     case 0://Rook2
                         token.type = new Rook
                         token.name = "whiteRook_2"
-                        token.rName = "#w"+"Rook_2"
+                        token.rName = "#w" + "Rook_2"
                         AddToBoard(token.type.imgW, token.name, token.docTag, token.rName)
 
                         break
@@ -124,8 +124,8 @@ const SetBoard = function ()
                 switch (token.y) {
                     case 0://Pawn 8
                         token.type = new BlackPawn
-                        token.name = "black"+"Pawn_"+"1"
-                        token.rName = "#b" + "Pawn_"+"1"
+                        token.name = "black" + "Pawn_" + "1"
+                        token.rName = "#b" + "Pawn_" + "1"
                         AddToBoard(token.type.imgB, token.name, token.docTag, token.rName)
 
                         break
@@ -311,6 +311,38 @@ const SetBoard = function ()
         }
 
     })
-    
+
+
+};
+
+const NewVsOld = function (tokens)
+{
+    console.log("Old VS New")
+    tokens.forEach((token) => {
+
+        //Find Token in History
+        for (var i = 0; i < tokenHistory.length; i++) {
+
+            
+            if (token.ID == tokenHistory[i].tag) {
+
+                //Was the token Removed
+                if (token.x == 'N') {
+
+                }
+                //Update position
+                else {
+                    //Futer Cheek for Valid Move Befor Updating
+                    //Update the history
+                    tokenHistory[i].update(token.x, token.y)
+                    //Update GUI
+                    UpdateBoard(tokenHistory[i].name, tokenHistory[i].docTag)
+                }
+            }
+        }
+        
+    })
+
+
 
 };

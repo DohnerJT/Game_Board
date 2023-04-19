@@ -50,6 +50,7 @@
     <Content Include="main\renders\launch_menu\menu.js" />
     <Content Include="main\set\games\chess\game_back_com.js" />
     <Content Include="main\set\games\chess\game_main.js" />
+    <Content Include="main\set\games\chess\Renders\rk_ui\general\gameBoard.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\general\game_front_com.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\general\tokens.js" />
     <Content Include="main\set\games\chess\Renders\rk_ui\general\tokenType.js" />
