@@ -14,6 +14,7 @@ const SetUp = function () {
     //Creat link with the back end for Menu
     //menu events
     $(document).delegate("#scanButton", "click", RequestScan)
+    $(document).delegate(".token", "click", ShowMoves)
 
 
 }

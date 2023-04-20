@@ -119,6 +119,7 @@ module.exports.SendTOGrid = function (msg)
 const SortGridMsg = function (data)
 {
     console.log("Entered")
+    console.log(data)
     //console.log("Data From Grid:\n" + data)
 
     appBank.ToGame(data)

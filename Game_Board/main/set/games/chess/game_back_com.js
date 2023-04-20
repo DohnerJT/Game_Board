@@ -26,6 +26,7 @@ module.exports.Link = function (channal) {
     ipcMain.on(channal, (e, data) => { SortMessage(data) })
 }
 
+//Sort mesages from the Front End
 const SortMessage = function (data) {
 
     switch (data.tag) {

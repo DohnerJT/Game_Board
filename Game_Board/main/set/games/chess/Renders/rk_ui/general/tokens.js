@@ -3,7 +3,7 @@
 let inital = true
 let tokenHistory = []
 
-//Updates token objects
+//Updates token objects when scan message come in
 const UpdatTokents = function (data) {
 
     //Parse the Raw Data
@@ -32,6 +32,7 @@ const UpdatTokents = function (data) {
 
 }
 
+//Parse String to JSON
 const ParseData = function (raw)
 {
     let data = JSON.parse(raw)
@@ -51,6 +52,7 @@ const FillHistory = function (scan)
 
 };
 
+//Setup Boared For the first time
 const SetBoard = function () {
     tokenHistory.forEach((token) => {
 
@@ -315,6 +317,7 @@ const SetBoard = function () {
 
 };
 
+//Compare new scna to old Scan
 const NewVsOld = function (tokens)
 {
     console.log("Old VS New")
@@ -328,7 +331,8 @@ const NewVsOld = function (tokens)
 
                 //Was the token Removed
                 if (token.x == 'N') {
-
+                    RemoveFromBoard(tokenHistory[i].name, tokenHistory[i].rName)
+                    tokenHistory.splice(i,1)
                 }
                 //Update position
                 else {
@@ -338,11 +342,16 @@ const NewVsOld = function (tokens)
                     //Update GUI
                     UpdateBoard(tokenHistory[i].name, tokenHistory[i].docTag)
                 }
+
+                break
             }
         }
+        console.log('End of History Loop')
         
     })
 
 
 
 };
+
+
