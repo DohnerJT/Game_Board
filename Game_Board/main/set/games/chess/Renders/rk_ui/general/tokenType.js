@@ -43,18 +43,244 @@ class BlackPawn
     //Get all moves and Atacks
     MoveCheck(x, y, self)
     {
-        
+        let moves = []
+
+        let forward = this.CheckForword(x, y)
+        let Attack = this.CheckAttack(x, y, self)
+
+        if (forward) {
+            forward.forEach((place) => {moves.unshift(place) })
+
+        }
+        if (Attack) {
+            Attack.forEach((place) => { moves.unshift(place) })
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+
+        }
+
     }
 
     //Check For Avalable Tiles Forward
-    
+    CheckForword(x, y) {
+
+        let moves = []
+
+        //First Move
+        if (x == 6) {
+            for (var i = 5; i > 3; i--) {
+                let target = `#x-${i}_y-${y}`
+                let targetCheck = $(target).children()
+                console.log(target)
+                console.log(targetCheck)
+
+                if (targetCheck.length) {
+                    break 
+                }
+                else {
+                    moves.unshift({ a: "O", tial: target })
+                }
+            }
+
+        }
+
+        //Subsequent Move
+        else {
+            let landing = `#x-${x - 1}_y-${y}`
+            let tileCheck = $(landing).children()
+
+            if (tileCheck.length) {
+                
+            }
+            else {
+                moves.unshift({ a: "O", tial: landing })
+            }
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+    }
+
+    CheckAttack(x, y, self) {
+        let moves = []
+        let target
+        let targetCheck
+        let targetName 
+        let targetOwn
+
+        let newY = y + 1
+        if (newY < 8) {
+            target = `#x-${x-1}_y-${newY}`
+            targetCheck = $(target).children()
+
+            if (targetCheck.length) {
+                targetName = targetCheck[0].id
+                targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    moves.unshift({ a: "A", tial: target })
+                }
+            }
+            
+        }
+
+        newY = y - 1
+        if (newY > -1) {
+            target = `#x-${x - 1}_y-${newY}`
+            targetCheck = $(target).children()
+
+            if (targetCheck.length) {
+                targetName = targetCheck[0].id
+                targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    moves.unshift({ a: "A", tial: target })
+                }
+            }
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+
+    }
 }
 
 class WhitePawn {
     imgW = "lib/tokenW/pawnW.png";
 
-    MoveCheck(a, y, self) { }
+    MoveCheck(x, y, self) {
+        let moves = []
 
+        let forward = this.CheckForword(x, y)
+        let Attack = this.CheckAttack(x, y, self)
+
+        if (forward) {
+            forward.forEach((place) => { moves.unshift(place) })
+
+        }
+        if (Attack) {
+            Attack.forEach((place) => { moves.unshift(place) })
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+
+        }
+
+    }
+
+    //Check For Avalable Tiles Forward
+    CheckForword(x, y) {
+
+        let moves = []
+
+        //First Move
+        if (x == 1) {
+            for (var i = 2; i < 4; i++) {
+                let target = `#x-${i}_y-${y}`
+                let targetCheck = $(target).children()
+                console.log(target)
+                console.log(targetCheck)
+
+                if (targetCheck.length) {
+                    break
+                }
+                else {
+                    moves.unshift({ a: "O", tial: target })
+                }
+            }
+
+        }
+
+        //Subsequent Move
+        else {
+            let landing = `#x-${x + 1}_y-${y}`
+            let tileCheck = $(landing).children()
+
+            if (tileCheck.length) {
+
+            }
+            else {
+                moves.unshift({ a: "O", tial: landing })
+            }
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+    }
+
+    CheckAttack(x, y, self) {
+        let moves = []
+        let target
+        let targetCheck
+        let targetName
+        let targetOwn
+
+        let newY = y + 1
+        if (newY < 8) {
+            target = `#x-${x + 1}_y-${newY}`
+            targetCheck = $(target).children()
+
+            if (targetCheck.length) {
+                targetName = targetCheck[0].id
+                targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    moves.unshift({ a: "A", tial: target })
+                }
+            }
+
+        }
+
+        newY = y - 1
+        if (newY > -1) {
+            target = `#x-${x + 1}_y-${newY}`
+            targetCheck = $(target).children()
+
+            if (targetCheck.length) {
+                targetName = targetCheck[0].id
+                targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    moves.unshift({ a: "A", tial: target })
+                }
+            }
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+
+    }
 }
 
 class Rook
@@ -275,7 +501,116 @@ class bishop {
     imgB = "lib/tokenB/bishopB.png";
     imgW = "lib/tokenW/bishopW.png";
 
-    MoveCheck(a, y, self) { }
+    MoveCheck(x, y, self) {
+        let moves = []
+
+        let NorthEast = this.CheckNorthEast(x, y, self)
+        let NorthWest = this.CheckNorthWest(x, y, self)
+        //let SouthEast = this.CheckSouthEast(x, y, self)
+        //let SouthWest = this.CheckSouthWest(x, y, self)
+        console.log(NorthEast)
+        console.log(NorthWest)
+
+    }
+
+    CheckNorthEast(x, y, self) {
+        let moves = []
+        let newX = x+1
+        let target
+        let targetCheck
+
+        for (var newY = y+1; newY < 8; newY++) {
+            //Set Target Tile
+            target = `#x-${newX}_y-${newY}`
+            targetCheck = $(target).children()
+
+            ////Check for Token on target tile
+            if (targetCheck.length) {
+                let targetName = targetCheck[0].id
+                let targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    console.log("Atack")
+                    moves.unshift({ a: "A", tial: target })
+
+                }
+                else {
+                    break
+                }
+
+
+
+            }
+            //Tile is open
+            else {
+
+                moves.unshift({ a: "O", tial: target })
+            }
+            newX++
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+    }
+
+    CheckNorthWest(x, y, self) {
+        let moves = []
+        let newX = x - 1
+        let target
+        let targetCheck
+
+        for (var newY = y + 1; newY < 8; newY++) {
+            //Set Target Tile
+            if (newX > 8 || newX < 0) {
+                break
+            }
+            target = `#x-${newX}_y-${newY}`
+            targetCheck = $(target).children()
+
+            ////Check for Token on target tile
+            if (targetCheck.length) {
+                let targetName = targetCheck[0].id
+                let targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    console.log("Atack")
+                    moves.unshift({ a: "A", tial: target })
+
+                }
+                else {
+                    break
+                }
+
+
+
+            }
+            //Tile is open
+            else {
+
+                moves.unshift({ a: "O", tial: target })
+            }
+            newX--
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
+    }
+
+    CheckSouthEast(x, y, self) {
+
+    }
+
+    CheckSouthWest(x, y, self) {
+
+    }
 
 }
 
@@ -291,7 +626,7 @@ class King {
     imgB = "lib/tokenB/kingB.png";
     imgW = "lib/tokenW/kingW.png";
 
-    MoveCheck(a, y, self) { }
+    MoveCheck(x, y, self) { }
 
 }
 
@@ -299,7 +634,7 @@ class Queen {
     imgB = "lib/tokenB/queenB.png";
     imgW = "lib/tokenW/queenW.png";
 
-    MoveCheck(a, y, self) { }
+    MoveCheck(x, y, self) { }
 
 }
 
