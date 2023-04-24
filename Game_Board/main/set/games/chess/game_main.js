@@ -25,9 +25,9 @@ module.exports.FromApp = function (data)
     com.ToFrontEnd(data)
 }
 
-module.exports.ToApp = function (target, instruction)
+module.exports.ToApp = function (target, instruction, data)
 {
-    AppBank.ToApp(target, instruction);
+    AppBank.ToApp(target, instruction, data);
 }
 
 module.exports.StartGameApp = function ()

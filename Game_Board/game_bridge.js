@@ -13,7 +13,6 @@
 const grid = require('./grid_com');
 const com = require('./back_com');
 const wins = require('./windows');
-
 let setGame = {} //This variable is set to the modual include for the game
 
 let gamePath //This variable 
@@ -54,12 +53,15 @@ module.exports.ToGame = function (data)
 }
 
 //Receve data frome Game set
-module.exports.ToApp = function (target, instruction)
+module.exports.ToApp = function (target, instruction, hello)
 {
-
+    let msgRaw
+    let msg
+    console.log("\nGame Bridge Data")
+    console.log(hello)
     //Sort Messages from Game App
     switch (target) {
-
+        
         //Requesting Actions from Grid
         case "port":
 
@@ -67,15 +69,21 @@ module.exports.ToApp = function (target, instruction)
 
                 case 'I':
                     console.log("Initial Scan")
-                    let msgRaw = { a: instruction, data: null }
-                    let msg = JSON.stringify(msgRaw);
+                    msgRaw = { a: instruction, d: hello }
+                    msg = JSON.stringify(msgRaw);
                     grid.SendTOGrid(msg)
                     break
                 case 'P':
                     console.log("Play Scan")
-                    let pRaw = { a: instruction, data: null }
-                    let msgP = JSON.stringify(pRaw);
-                    grid.SendTOGrid(msgP)
+                    msgRaw = { a: instruction, d: hello }
+                    msg = JSON.stringify(msgRaw);
+                    grid.SendTOGrid(msg)
+                    break
+                case 'S':
+                    console.log("show")                   
+                    msgRaw = { a: instruction, d: hello  }
+                    msg = JSON.stringify(msgRaw);
+                    grid.SendTOGrid(msg)
                     break
                 default:
             }

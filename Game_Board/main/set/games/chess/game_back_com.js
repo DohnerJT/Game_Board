@@ -14,7 +14,6 @@ let dirBackPath = "../../../../"
 const wins = require(dirBackPath + 'windows');
 const gameBank = require('./game_main')
 
-
 //Included public moduales
 const { ipcMain } = require('electron')
 
@@ -28,20 +27,26 @@ module.exports.Link = function (channal) {
 
 //Sort mesages from the Front End
 const SortMessage = function (data) {
-
+    let msg = []
+    let target = data.tag
+    
+    
+    console.log("Back Com")
+    console.log(msg)
+    
     switch (data.tag) {
         case "port":
 
             switch (data.req) {
                 case "scanI":
-                    gameBank.ToApp(data.tag, 'I')
+                    gameBank.ToApp(target, 'I', 'Hello From Inital')
                     break
                 case "scanP":
-                    gameBank.ToApp(data.tag, 'P')
-
-
+                    gameBank.ToApp(target, 'P', 'Hello From play')
                     break
-
+                case "show":                    
+                    gameBank.ToApp(target, 'S', data.msg)
+                    break
 
                 default:
             }

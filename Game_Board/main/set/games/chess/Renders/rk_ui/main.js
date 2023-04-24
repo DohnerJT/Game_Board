@@ -2,7 +2,6 @@
 
 
 let grid =  []
-
 let colLength = 8
 let rowLength = 8
 
@@ -10,6 +9,8 @@ let rowLength = 8
 const SetUp = function () {
 
     BuildBoard();
+    BuildMainGrid();
+
 
     //Creat link with the back end for Menu
     //menu events
@@ -104,10 +105,10 @@ const RequestScan = function (){
 
 //Request Inital or Play scan    
     if (inital) {
-        Send("port", 'scanI', NaN)
+        Send("port", 'scanI', null)
     }
     else{
-        Send("port", 'scanP', NaN)
+        Send("port", 'scanP', null)
     }
     
 

@@ -3,6 +3,8 @@ class TokenObj {
     type;
     name;
     rName;
+    docTag;
+    movesAvalable;
 
     constructor(x, y, tag) {
         //Token ID
@@ -26,10 +28,10 @@ class TokenObj {
         let move = this.type.MoveCheck(this.x, this.y, self)
 
         if (!move) {
-            return false
+            movesAvalable = false
         }
 
-        return move
+        this.movesAvalable = move
     }
 
 }
@@ -77,8 +79,6 @@ class BlackPawn
             for (var i = 5; i > 3; i--) {
                 let target = `#x-${i}_y-${y}`
                 let targetCheck = $(target).children()
-                console.log(target)
-                console.log(targetCheck)
 
                 if (targetCheck.length) {
                     break 
@@ -199,8 +199,6 @@ class WhitePawn {
             for (var i = 2; i < 4; i++) {
                 let target = `#x-${i}_y-${y}`
                 let targetCheck = $(target).children()
-                console.log(target)
-                console.log(targetCheck)
 
                 if (targetCheck.length) {
                     break
@@ -345,7 +343,7 @@ class Rook
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -386,7 +384,7 @@ class Rook
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -428,7 +426,7 @@ class Rook
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -470,7 +468,7 @@ class Rook
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -748,19 +746,15 @@ class Knight {
 
         //Check if moves are avalable for each direction
         if (East) {
-            console.log(East)
             East.forEach((tile) => { moves.unshift(tile) })
         }
         if (West) {
-            console.log(West)
             West.forEach((tile) => { moves.unshift(tile) })
         }
         if (North) {
-            console.log(North)
             North.forEach((tile) => { moves.unshift(tile) })
         }
         if (South) {
-            console.log(South)
             South.forEach((tile) => { moves.unshift(tile) })
         }
 
@@ -1115,7 +1109,6 @@ class King {
             { newX: x,     newY: y - 1}
         ]
 
-        console.log(tiles)
         tiles.forEach((tile) => {
             //Check if Tile is on The boared
             if (tile.newX > -1 && tile.newX < 8) {
@@ -1180,16 +1173,12 @@ class Queen {
             East.forEach((tile) => { moves.unshift(tile) })
         }
         if (West) {
-            console.log("West")
-            console.log(West)
             West.forEach((tile) => { moves.unshift(tile) })
         }
         if (North) {
-            console.log(North)
             North.forEach((tile) => { moves.unshift(tile) })
         }
         if (South) {
-            console.log(South)
             South.forEach((tile) => { moves.unshift(tile) })
         }
         if (NorthEast) {

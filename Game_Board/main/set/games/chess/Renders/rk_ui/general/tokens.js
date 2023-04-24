@@ -20,14 +20,16 @@ const UpdatTokents = function (data) {
         //Using the History Variable, Asignes roles to tokens and populates 
         //the game Boared on the ui
         SetBoard()
-
-        console.log(tokenHistory)
+        //Identifey Avalable Moves for Tokens on Boared
+        SetMoves()
         inital = false
     }
     //Play Scan
     else {
-
+        //Compare scan Agenst Old
         NewVsOld(scan)
+        //Identifey Avalable Moves for Tokens on Boared
+        SetMoves()
     }
 
 }
@@ -317,10 +319,17 @@ const SetBoard = function () {
 
 };
 
+const SetMoves = function () {
+
+    tokenHistory.forEach((token) => {
+        token.Move()
+    })
+}
 //Compare new scna to old Scan
 const NewVsOld = function (tokens)
 {
     console.log("Old VS New")
+    ClearLEDs()
     tokens.forEach((token) => {
 
         //Find Token in History
