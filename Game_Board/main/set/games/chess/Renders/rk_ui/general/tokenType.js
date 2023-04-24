@@ -508,18 +508,31 @@ class bishop {
         let NorthWest = this.CheckNorthWest(x, y, self)
         let SouthEast = this.CheckSouthEast(x, y, self)
         let SouthWest = this.CheckSouthWest(x, y, self)
-        console.log("North East")
-        console.log(NorthEast)
 
-        console.log("North Weast")
-        console.log(NorthWest)
+        if (NorthEast) {
+            NorthEast.forEach((tile) => { moves.unshift(tile) })
 
-        console.log("South East")
-        console.log(SouthEast)
+        }
+        if (NorthWest) {
+            NorthWest.forEach((tile) => { moves.unshift(tile) })
 
-        console.log("South West")
-        console.log(SouthWest)
+        }
+        if (SouthEast) {
+            SouthEast.forEach((tile) => { moves.unshift(tile) })
 
+        }
+        if (SouthWest) {
+            SouthWest.forEach((tile) => { moves.unshift(tile) })
+
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+
+        }
 
     }
 
