@@ -506,10 +506,20 @@ class bishop {
 
         let NorthEast = this.CheckNorthEast(x, y, self)
         let NorthWest = this.CheckNorthWest(x, y, self)
-        //let SouthEast = this.CheckSouthEast(x, y, self)
-        //let SouthWest = this.CheckSouthWest(x, y, self)
+        let SouthEast = this.CheckSouthEast(x, y, self)
+        let SouthWest = this.CheckSouthWest(x, y, self)
+        console.log("North East")
         console.log(NorthEast)
+
+        console.log("North Weast")
         console.log(NorthWest)
+
+        console.log("South East")
+        console.log(SouthEast)
+
+        console.log("South West")
+        console.log(SouthWest)
+
 
     }
 
@@ -532,7 +542,7 @@ class bishop {
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -579,7 +589,7 @@ class bishop {
                 if (targetOwn != self) {
                     console.log("Atack")
                     moves.unshift({ a: "A", tial: target })
-
+                    break
                 }
                 else {
                     break
@@ -605,10 +615,108 @@ class bishop {
     }
 
     CheckSouthEast(x, y, self) {
+        let moves = []
+        let newX = x + 1
+        let target
+        let targetCheck
 
+        for (var newY = y - 1; newY > -1; newY--) {
+            //Set Target Tile
+            if (newX != -1 || newX !=8) {
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+            }
+            else {
+                break
+            }
+           
+
+            ////Check for Token on target tile
+            if (targetCheck.length) {
+                let targetName = targetCheck[0].id
+                let targetOwn = targetName[0]
+
+                if (targetOwn != self) {
+                    console.log("Atack")
+                    moves.unshift({ a: "A", tial: target })
+                    break
+                }
+                else {
+                    break
+                }
+
+
+
+            }
+            //Tile is open
+            else {
+
+                moves.unshift({ a: "O", tial: target })
+            }
+            newX++
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
     }
 
     CheckSouthWest(x, y, self) {
+        let moves = []
+        let newX = x - 1
+        let target
+        let targetCheck
+
+        for (var newY = y - 1; newY > -1; newY--) {
+            //Set Target Tile
+            if (newX > 8 || newX < 0) {
+                break
+            }
+            target = `#x-${newX}_y-${newY}`
+            targetCheck = $(target).children()
+
+            ////Check for Token on target tile
+            if (targetCheck.length) {
+                if (newX != -1 || newX != 8) {
+                    let targetName = targetCheck[0].id
+                    let targetOwn = targetName[0]
+
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+                        break
+                    }
+                    else {
+                        break
+                    }
+                }
+                else {
+                    break
+                }
+                
+
+               
+
+
+
+            }
+            //Tile is open
+            else {
+
+                moves.unshift({ a: "O", tial: target })
+            }
+            newX--
+        }
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+        }
 
     }
 
