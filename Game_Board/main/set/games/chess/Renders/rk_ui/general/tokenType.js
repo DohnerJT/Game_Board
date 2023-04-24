@@ -748,22 +748,18 @@ class Knight {
 
         //Check if moves are avalable for each direction
         if (East) {
-            console.log("East")
             console.log(East)
             East.forEach((tile) => { moves.unshift(tile) })
         }
         if (West) {
-            console.log("West")
             console.log(West)
             West.forEach((tile) => { moves.unshift(tile) })
         }
         if (North) {
-            console.log("North")
             console.log(North)
             North.forEach((tile) => { moves.unshift(tile) })
         }
         if (South) {
-            console.log("South")
             console.log(South)
             South.forEach((tile) => { moves.unshift(tile) })
         }
@@ -1106,7 +1102,60 @@ class King {
     imgB = "lib/tokenB/kingB.png";
     imgW = "lib/tokenW/kingW.png";
 
-    MoveCheck(x, y, self) { }
+    MoveCheck(x, y, self) {
+        let moves = []
+        let tiles = [
+            { newX: x + 1, newY: y},
+            { newX: x + 1, newY: y + 1},
+            { newX: x + 1, newY: y - 1},
+            { newX: x - 1, newY: y},
+            { newX: x - 1, newY: y + 1},
+            { newX: x - 1, newY: y - 1},
+            { newX: x,     newY: y + 1},
+            { newX: x,     newY: y - 1}
+        ]
+
+        console.log(tiles)
+        tiles.forEach((tile) => {
+            //Check if Tile is on The boared
+            if (tile.newX > -1 && tile.newX < 8) {
+
+                if (tile.newY > -1 && tile.newY < 8) {
+                    let target = `#x-${tile.newX}_y-${tile.newY}`
+                    let targetCheck = $(target).children()
+
+                    //Check if Tile is open
+                    if (targetCheck.length) {
+                        let targetName = targetCheck[0].id
+                        let targetOwn = targetName[0]
+
+                        //Atack
+                        if (targetOwn != self) {
+                            moves.unshift({ a: "A", tial: target })
+
+                        }//End of Attack
+                    }//End Of Blocked Tile
+
+                    //Tile is open
+                    else {
+
+                        moves.unshift({ a: "O", tial: target })
+                    }//End Of Open Tile
+
+                }//End of Y Check
+            }//End Of x Check
+        })//End Of ForEach Loop
+
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+
+        }
+        
+    }
+
 
 }//End Of King
 
