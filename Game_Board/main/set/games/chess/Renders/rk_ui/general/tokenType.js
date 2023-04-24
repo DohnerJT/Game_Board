@@ -476,9 +476,8 @@ class Rook
                     break
                 }
 
-
-
             }
+
             //Tile is open
             else {
 
@@ -733,15 +732,375 @@ class bishop {
 
     }
 
-}
+}//End Of Bishop
 
 class Knight {
     imgB = "lib/tokenB/knightB.png";
     imgW = "lib/tokenW/knightW.png";
 
-    MoveCheck(a, y, self) { }
+    MoveCheck(x, y, self)
+    {
+        let moves = []
+        let East = this.MoveEast(x, y, self)
+        let West = this.MoveWest(x, y, self)
+        let North = this.MoveNorth(x, y, self)
+        let South = this.MoveSouth(x, y, self)
 
-}
+        //Check if moves are avalable for each direction
+        if (East) {
+            console.log("East")
+            console.log(East)
+            East.forEach((tile) => { moves.unshift(tile) })
+        }
+        if (West) {
+            console.log("West")
+            console.log(West)
+            West.forEach((tile) => { moves.unshift(tile) })
+        }
+        if (North) {
+            console.log("North")
+            console.log(North)
+            North.forEach((tile) => { moves.unshift(tile) })
+        }
+        if (South) {
+            console.log("South")
+            console.log(South)
+            South.forEach((tile) => { moves.unshift(tile) })
+        }
+
+        ////Check that moves are avalable
+        if (moves.length) {
+            return moves
+        }
+        else {
+            return false
+
+        }
+    }//End Move Check
+
+    MoveEast(x, y, self)
+    {
+        let moves = []
+        let newX = x + 2
+        let newY
+        let target 
+        let targetCheck
+        let targetName 
+        let targetOwn
+
+
+        if (newX < 8) {
+            //Check Turn 1
+            newY = y + 1
+            if (newY < 8) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self)
+                    {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 1
+           
+            //Check Turn 2
+            newY = y - 1
+            if (newY > -1) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 2           
+
+            if (moves.length) {
+                return moves
+            }
+            else {
+                return false
+            }
+
+        }//X check Sucksess End
+
+        else {
+            return false
+        }//x check fail End
+
+    }//End Of East Check
+
+    MoveWest(x, y, self) {
+        let moves = []
+        let newX = x - 2
+        let newY
+        let target
+        let targetCheck
+        let targetName
+        let targetOwn
+
+
+        if (newX > -1) {
+            //Check Turn 1
+            newY = y + 1
+            if (newY < 8) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 1
+
+            //Check Turn 2
+            newY = y - 1
+            if (newY > -1) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 2           
+
+            if (moves.length) {
+                return moves
+            }
+            else {
+                return false
+            }
+
+        }//X check Sucksess End
+
+        else {
+            return false
+        }//x check fail End
+
+    }//End Of West Check
+
+    MoveNorth(x, y, self) {
+        let moves = []
+        let newX 
+        let newY = y +2 
+        let target
+        let targetCheck
+        let targetName
+        let targetOwn
+
+
+        if (newY < 8) {
+            //Check Turn 1
+            newX = x + 1
+            if (newX < 8) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 1
+
+            //Check Turn 2
+            newX = x - 1
+            if (newX > -1) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 2           
+
+            if (moves.length) {
+                return moves
+            }
+            else {
+                return false
+            }
+
+        }//X check Sucksess End
+
+        else {
+            return false
+        }//x check fail End
+
+    }//End Of North Check
+
+    MoveSouth(x, y, self) {
+        let moves = []
+        let newX
+        let newY = y - 2
+        let target
+        let targetCheck
+        let targetName
+        let targetOwn
+
+
+        if (newY > -1) {
+            //Check Turn 1
+            newX = x + 1
+            if (newX < 8) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 1
+
+            //Check Turn 2
+            newX = x - 1
+            if (newX > -1) {
+                //Check Tile is open
+                target = `#x-${newX}_y-${newY}`
+                targetCheck = $(target).children()
+
+                if (targetCheck.length) {
+                    targetName = targetCheck[0].id
+                    targetOwn = targetName[0]
+
+                    //Atack
+                    if (targetOwn != self) {
+                        console.log("Atack")
+                        moves.unshift({ a: "A", tial: target })
+
+                    }//End of Attack
+                }//End Of Blocked Tile
+
+                //Tile is open
+                else {
+
+                    moves.unshift({ a: "O", tial: target })
+                }//End Of Open Tile
+
+            }//End Of turn 2           
+
+            if (moves.length) {
+                return moves
+            }
+            else {
+                return false
+            }
+
+        }//X check Sucksess End
+
+        else {
+            return false
+        }//x check fail End
+
+    }//End Of South Check
+
+}//End of Knight
 
 class King {
     imgB = "lib/tokenB/kingB.png";
@@ -749,7 +1108,7 @@ class King {
 
     MoveCheck(x, y, self) { }
 
-}
+}//End Of King
 
 class Queen {
     imgB = "lib/tokenB/queenB.png";
@@ -757,7 +1116,7 @@ class Queen {
 
     MoveCheck(x, y, self) { }
 
-}
+}//End Of Queen
 
 
 
