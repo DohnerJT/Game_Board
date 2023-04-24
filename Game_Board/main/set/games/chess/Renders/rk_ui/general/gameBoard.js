@@ -99,12 +99,20 @@ const BuildMainGrid = function () {
                 LEDcount++
             }
         }
-        else if (col % 2) {
-            for (var y = LEDrow - 1; y >= 0; y--) {
+        else if (col % 2)
+        {
+            for (var y = LEDrow - 1; y >= 0; y--)
+            {
                 console.log(LEDArray[LEDcount])
 
                 console.log(`X: ${x} Y: ${y}`)
-                mainGrid[x][y].LED.push(LEDArray[LEDcount])                             
+                mainGrid[x][y].LED.push(LEDArray[LEDcount])   
+                if (y != 0)
+                {
+                    let yUp = y - 1
+                    mainGrid[x][yUp].LED.push(LEDArray[LEDcount])   
+
+                }
                 LEDcount++
             }
         }

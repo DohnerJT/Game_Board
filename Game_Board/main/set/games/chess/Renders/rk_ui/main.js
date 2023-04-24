@@ -101,15 +101,15 @@ const BuildBoard = function ()
 };
 
 //Send Scan Request to back end of Game
-const RequestScan = function (){
-
+const RequestScan = function (e){
+    console.log(e.currentTarget.value)
 //Request Inital or Play scan    
-    if (inital) {
-        Send("port", 'scanI', null)
-    }
-    else{
-        Send("port", 'scanP', null)
-    }
+    //if (inital) {
+    //    Send("port", 'scanI', null)
+    //}
+    //else{
+    //    Send("port", 'scanP', null)
+    //}
     
 
 }
