@@ -89,30 +89,44 @@ const BuildMainGrid = function () {
         let x = Math.trunc(col / 2)
         
 
-        //LED Row Number Top To bottome for two Tiles
-        if (col == 15) {
-            for (var y = LEDrow - 1; y >= 0; y--) {
-                mainGrid[x][y].LED.push(LEDArray[LEDcount])                
+        //LED Row Number Top To bottome for one Tiles
+        if (col == 0) {
+            for (var y = 0; y < LEDrow; y++) {
+                console.log(LEDArray[LEDcount])
+
+                console.log(`X: ${x} Y: ${y}`)
+                mainGrid[x][y].LED.push(LEDArray[LEDcount])
                 LEDcount++
             }
         }
         else if (col % 2) {
-            for (var y = LEDrow-1; y >=0 ; y--) {
-                mainGrid[x][y].LED.push(LEDArray[LEDcount])
-                let xUp = x + 1
-                mainGrid[xUp][y].LED.push(LEDArray[LEDcount])              
+            for (var y = LEDrow - 1; y >= 0; y--) {
+                console.log(LEDArray[LEDcount])
+
+                console.log(`X: ${x} Y: ${y}`)
+                mainGrid[x][y].LED.push(LEDArray[LEDcount])                             
                 LEDcount++
             }
         }
-        //LED Row Number bottom To top for one Tiles
+        //LED Row Number bottom To top for two Tiles
         else {            
             for (var y = 0; y < LEDrow; y++) {
+                console.log(LEDArray[LEDcount])
+
+                console.log(`X: ${x} Y: ${y}`)
+
                 mainGrid[x][y].LED.push(LEDArray[LEDcount])
+
+                let xUp = x - 1
+                console.log(`and X: ${xUp} Y: ${y}`)
+
+                mainGrid[xUp][y].LED.push(LEDArray[LEDcount])
+
                 LEDcount++
             }
 
         }
-
+        console.log('\n\n')
     }
     console.log(mainGrid)
 

@@ -119,7 +119,24 @@
     padding: 0; margin: 0;
 }
 
+.player{
+    border: 2px solid red;
+    height: 100%; width: 33%;
+    text-align: center;
+}
+
+#DM{
+    display: flex;
+    align-items: center; justify-content: center;
+    height: 100%; width: 33%;
+
+}
+
 #scanButton{
     font-size: large;
     height: 50px;
+}
+
+button {
+    width: 150px;
 }
