@@ -5,7 +5,6 @@ let tokenHistory = []
 
 //Updates token objects when scan message come in
 const UpdatTokents = function (data) {
-
     //Parse the Raw Data
     let scan = ParseData(data)
     console.log("returned Data\n")

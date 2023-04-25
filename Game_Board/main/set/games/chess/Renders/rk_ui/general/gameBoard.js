@@ -281,6 +281,7 @@ const SendLEDs = function () {
             message.push(obj)
         }
     })
-    //console.log(madMessage)
+    console.log("LED Sent To Grid")
+    console.log(message)
     Send('port', 'show', message)
 }

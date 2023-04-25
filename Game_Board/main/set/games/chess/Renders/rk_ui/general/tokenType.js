@@ -28,7 +28,7 @@ class TokenObj {
         let move = this.type.MoveCheck(this.x, this.y, self)
 
         if (!move) {
-            movesAvalable = false
+            this.movesAvalable = false
         }
 
         this.movesAvalable = move
