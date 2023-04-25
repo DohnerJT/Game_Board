@@ -35,9 +35,9 @@ class LED {
                 this.check = this.r + this.g + this.b
                 break
             case 'A':
-                this.r = 255;
-                this.g = 255;
-                this.b = 0;
+                this.r = 0;
+                this.g = 0;
+                this.b = 255;
                 this.check = this.r + this.g + this.b
                 break
             case 'R':
@@ -237,7 +237,7 @@ const LightLEDShowLED = function (LEDs, tag, color) {
             })
             break
         case 'A':
-            target.css("border", "4px solid yellow")
+            target.css("border", "4px solid blue")
             LEDs.forEach((led) => {
                 console.log("LED number:")
                 console.log(led)

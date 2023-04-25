@@ -5,6 +5,12 @@ let grid =  []
 let colLength = 8
 let rowLength = 8
 
+let player_1_Ready = false
+let player_2_Ready = false
+
+let player_Turn = true
+
+
 
 const SetUp = function () {
 
@@ -101,8 +107,57 @@ const BuildBoard = function ()
 };
 
 //Send Scan Request to back end of Game
-const RequestScan = function (e){
-    console.log(e.currentTarget.value)
+const RequestScan = function (e) {
+    let redingValue = e.currentTarget.value
+    let instruct = redingValue.split('_')
+    console.log(instruct)
+
+    switch (instruct[0]) {
+        case 'P1':
+            if (instruct[1] == 'S') {
+                player_1_Ready = true 
+                $(`#Player_1 > button`).attr("disabled", true)
+            }
+            else if (instruct[1] == 'P') {
+                Send("port", 'scanP', null)
+
+            }
+            break
+        case 'P2':
+            if (instruct[1] == 'S') {
+                player_2_Ready = true 
+                $(`#Player_2 > button`).attr("disabled", true)
+
+            }
+            else if (instruct[1] == 'P') {
+                Send("port", 'scanP', null)
+            }
+            break
+        case 'Init':
+            inital = true
+            Send("port", 'scanI', null)
+
+            break
+
+        default:
+    }
+
+    if (player_1_Ready && player_2_Ready && inital) {
+        Send("port", 'scanI', null)
+        $(`#DM > button`).attr("disabled", false)
+        $(`#Player_1 > button`).attr("value", 'P1_P')
+        $(`#Player_1 > button`).attr("disabled", false)
+        $(`#Player_1 > button`).text("Commite")
+
+        $(`#Player_2 > button`).attr("value", 'P2_P')
+        $(`#Player_2 > button`).text("Commite")
+
+        $('#Player_1').css("border", "4px solid green")
+        $('#Player_2').css("border", "")
+
+    }
+
+    
 //Request Inital or Play scan    
     //if (inital) {
     //    Send("port", 'scanI', null)

@@ -14,6 +14,9 @@ const UpdatTokents = function (data) {
     //Identifey Inital or Play scan
     //Initial Scan
     if (inital) {
+        tokenHistory = []
+        //Clear the Boared 
+        FullClearBoared()
         //Performes iniatle filling of History Variable
         FillHistory(scan)
 
@@ -30,6 +33,22 @@ const UpdatTokents = function (data) {
         NewVsOld(scan)
         //Identifey Avalable Moves for Tokens on Boared
         SetMoves()
+        player_Turn = !player_Turn
+
+        if (player_Turn) {
+            $(`#Player_1 > button`).attr("disabled", false)
+            $(`#Player_2 > button`).attr("disabled", true)
+            $('#Player_1').css("border", "4px solid green")
+            $('#Player_2').css("border", "")
+
+        }
+        else if (!player_Turn) {
+            $(`#Player_1 > button`).attr("disabled", true)
+            $(`#Player_2 > button`).attr("disabled", false)
+
+            $('#Player_2').css("border", "4px solid green")
+            $('#Player_1').css("border", "")
+        }
     }
 
 }
@@ -318,6 +337,11 @@ const SetBoard = function () {
 
 
 };
+
+const FullClearBoared = function () {
+    $("#gameBoard").empty()
+    BuildBoard()
+}
 
 const SetMoves = function () {
 

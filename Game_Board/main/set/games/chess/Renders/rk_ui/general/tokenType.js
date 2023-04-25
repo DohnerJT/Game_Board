@@ -522,6 +522,8 @@ class bishop {
             SouthWest.forEach((tile) => { moves.unshift(tile) })
 
         }
+        console.log("Queen Moves")
+        console.log(moves)
 
         if (moves.length) {
             return moves
@@ -544,6 +546,9 @@ class bishop {
             target = `#x-${newX}_y-${newY}`
             targetCheck = $(target).children()
 
+            if (newX > 7 || newX < 0) {
+                break
+            }
             ////Check for Token on target tile
             if (targetCheck.length) {
                 let targetName = targetCheck[0].id
@@ -585,9 +590,10 @@ class bishop {
 
         for (var newY = y + 1; newY < 8; newY++) {
             //Set Target Tile
-            if (newX > 8 || newX < 0) {
+            if (newX > 7 || newX < 0) {
                 break
             }
+
             target = `#x-${newX}_y-${newY}`
             targetCheck = $(target).children()
 
@@ -632,13 +638,13 @@ class bishop {
 
         for (var newY = y - 1; newY > -1; newY--) {
             //Set Target Tile
-            if (newX != -1 || newX !=8) {
-                target = `#x-${newX}_y-${newY}`
-                targetCheck = $(target).children()
-            }
-            else {
+
+            if (newX > 7 || newX < 0) {
                 break
             }
+            target = `#x-${newX}_y-${newY}`
+            targetCheck = $(target).children()
+            
            
 
             ////Check for Token on target tile
@@ -682,7 +688,7 @@ class bishop {
 
         for (var newY = y - 1; newY > -1; newY--) {
             //Set Target Tile
-            if (newX > 8 || newX < 0) {
+            if (newX > 7 || newX < 0) {
                 break
             }
             target = `#x-${newX}_y-${newY}`
@@ -1217,6 +1223,7 @@ class Queen {
         for (var newX = x + 1; newX < 8; newX++) {
             let target = `#x-${newX}_y-${y}`
             let targetCheck = $(target).children()
+            
 
             //Tile is Blocked
             if (targetCheck.length) {
@@ -1386,6 +1393,9 @@ class Queen {
             //Set Target Tile
             target = `#x-${newX}_y-${newY}`
             targetCheck = $(target).children()
+            if (newX >7 || newX < 0) {
+                break
+            }
 
             ////Check for Token on target tile
             if (targetCheck.length) {
@@ -1428,7 +1438,7 @@ class Queen {
 
         for (var newY = y + 1; newY < 8; newY++) {
             //Set Target Tile
-            if (newX > 8 || newX < 0) {
+            if (newX > 7 || newX < 0) {
                 break
             }
             target = `#x-${newX}_y-${newY}`
@@ -1475,13 +1485,13 @@ class Queen {
 
         for (var newY = y - 1; newY > -1; newY--) {
             //Set Target Tile
-            if (newX != -1 || newX != 8) {
-                target = `#x-${newX}_y-${newY}`
-                targetCheck = $(target).children()
-            }
-            else {
+            if (newX > 7 || newX < 0) {
                 break
             }
+
+            target = `#x-${newX}_y-${newY}`
+            targetCheck = $(target).children()
+           
 
 
             ////Check for Token on target tile
@@ -1525,7 +1535,7 @@ class Queen {
 
         for (var newY = y - 1; newY > -1; newY--) {
             //Set Target Tile
-            if (newX > 8 || newX < 0) {
+            if (newX > 7 || newX < 0) {
                 break
             }
             target = `#x-${newX}_y-${newY}`
